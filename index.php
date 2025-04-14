@@ -10,7 +10,7 @@
 <body>
     <div>
         <h1>Home</h1>
-        <p>This is the index page.</p>
+        <p>Hello This is the index page.</p>
         <a href="admin/login.php">Login</a>
     </div>
 </body>
