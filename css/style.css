@@ -1,0 +1,30 @@
+/* Customs buttons*/
+
+.login-button {
+    background-color: crimson;
+    color: white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+/* Transisi Buttons */
+.login-button:hover{
+    background-color: black;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    display: flex;
+}
