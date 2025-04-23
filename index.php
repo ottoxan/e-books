@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!--Navbar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand me-auto" href="#">Logo</a>
@@ -43,11 +44,54 @@
                 </div>
             </div>
             <a href="admin/login.php" class="login-button">Login</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </nav>
+    <!--End-->
+
+    <!--Section-->
+    <section class="hero-section">
+        <h2 class="section-title">Recent Projects</h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <img src="#" alt="">
+                <h3>Project A</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Placeat, officia.</p>
+                <div class="btn-grup">
+                    <div class="btn">Live Demo</div>
+                    <div class="btn">Github Repo</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="#" alt="">
+                <h3>Project B</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Placeat, officia.</p>
+                <div class="btn-grup">
+                    <div class="btn">Live Demo</div>
+                    <div class="btn">Github Repo</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="#" alt="">
+                <h3>Project C</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Placeat, officia.</p>
+                <div class="btn-grup">
+                    <div class="btn">Live Demo</div>
+                    <div class="btn">Github Repo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End-->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
