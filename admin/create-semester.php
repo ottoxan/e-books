@@ -1,0 +1,92 @@
+<?php
+
+$mysqli = require "config/database.php";
+
+$semester_number = '';
+$grade_id = '';
+$error_message = '';
+$success_message = '';
+
+// Fetch grades with their associated academic stages
+$sqlGrades = "SELECT grade.id, grade.grade, academic_stage.academic_stage 
+              FROM grade 
+              JOIN academic_stage ON grade.academic_id = academic_stage.id";
+$resultGrades = $mysqli->query($sqlGrades);
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $semester_number = $_POST["semester_number"] ?? '';
+    $grade_id = $_POST["grade_id"] ?? '';
+
+    // Validate input
+    if (empty($semester_number)) {
+        $error_message = "Semester number is required";
+    } elseif (empty($grade_id)) {
+        $error_message = "Grade is required";
+    } else {
+        // Insert into database
+        $sql = "INSERT INTO semester (grade_id, semester_number) VALUES (?, ?)";
+        $stmt = $mysqli->prepare($sql);
+
+        if ($stmt) {
+            $stmt->bind_param("is", $grade_id, $semester_number);
+            if ($stmt->execute()) {
+                $success_message = "Semester created successfully";
+                header("Location: semester.php?success_message=" . urlencode($success_message));
+                exit;
+            } else {
+                $error_message = "Error: " . $stmt->error;
+            }
+            $stmt->close();
+        } else {
+            $error_message = "Error: " . $mysqli->error;
+        }
+    }
+}
+?>
+<?php include 'partials/header.php' ?>
+
+<?php
+if (!empty($success_message)) { ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $success_message; ?>
+    </div>
+<?php } ?>
+<div class="form-popup-bg is-visible">
+    <div class="form-container">
+        <?php if (!empty($error_message)) { ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $error_message; ?>
+            </div>
+        <?php } ?>
+
+        <form method="POST">
+            <h1>Create Semester</h1>
+            <div class="form-group">
+                <label for="semester_number">Semester Number</label>
+                <input type="text" class="form-control" id="semester_number" name="semester_number" value="">
+            </div>
+            <div class="form-group">
+                <label for="grade_id">Grade (Academic Stage)</label>
+                <select class="form-select mb-3" id="grade_id" name="grade_id" aria-label="Default select example">
+                    <option selected disabled>Select a grade</option>
+                    <?php while ($row = $resultGrades->fetch_assoc()): ?>
+                        <option value="<?php echo htmlspecialchars($row["id"]); ?>">
+                            <?php echo htmlspecialchars($row["grade"] . " (" . $row["academic_stage"] . ")"); ?>
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+            <div class="row mb-3">
+                <div class="offset-sm-3 col-sm-3 d-grid">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+                <div class="col-sm-3 d-grid">
+                    <a class="btn btn-outline-primary" href="semester.php" role='button'>Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php include 'partials/footer.php' ?>
