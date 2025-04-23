@@ -34,10 +34,10 @@ $resultStages = $mysqli->query($sqlStages);
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Experience</a>
+                            <a class="nav-link" href="Experience">Experience</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Skills</a>
@@ -82,7 +82,33 @@ $resultStages = $mysqli->query($sqlStages);
     </section>
     <!--End-->
 
+    <footer>
+        <ul>
+            <li>
+                <a href="#about">About</a>
+            </li>
 
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+
+        <p class="copyright">@ All Right Reserved | HYAHYA</p>
+    </footer>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 
