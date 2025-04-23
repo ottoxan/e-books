@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+$mysqli = require "admin/config/database.php";
+$sqlStages = "SELECT * FROM academic_stage";
+$resultStages = $mysqli->query($sqlStages);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,42 +61,23 @@
 
     <!--Section-->
     <section class="hero-section">
-        <h2 class="section-title">Recent Projects</h2>
+        <h2 class="section-title">Academic Stage</h2>
 
         <div class="projects-grid">
+            <?php while ($row = $resultStages->fetch_assoc()): ?>
 
-            <div class="project-card">
-                <img src="#" alt="">
-                <h3>Project A</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Placeat, officia.</p>
-                <div class="btn-grup">
-                    <div class="btn">Live Demo</div>
-                    <div class="btn">Github Repo</div>
-                </div>
-            </div>
 
-            <div class="project-card">
-                <img src="#" alt="">
-                <h3>Project B</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Placeat, officia.</p>
-                <div class="btn-grup">
-                    <div class="btn">Live Demo</div>
-                    <div class="btn">Github Repo</div>
+                <div class="project-card">
+                    <img src="#" alt="">
+                    <h3>
+                        <?php echo htmlspecialchars($row["academic_stage"]); ?>
+                    </h3>
+                    <div class="btn-grup">
+                        <div class="btn">Button</div>
+                        <div class="btn">Button</div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <img src="#" alt="">
-                <h3>Project C</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Placeat, officia.</p>
-                <div class="btn-grup">
-                    <div class="btn">Live Demo</div>
-                    <div class="btn">Github Repo</div>
-                </div>
-            </div>
+            <?php endwhile; ?>
         </div>
     </section>
     <!--End-->
