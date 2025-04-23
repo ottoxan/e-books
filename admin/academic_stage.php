@@ -31,7 +31,7 @@ $success_message = isset($_GET['success_message']) ? urldecode($_GET['success_me
             <div class="left">
                 <h1>Academic Stages</h1>
             </div>
-            <a href="create-academic.php" id="btnOpenForm" class="btn-download">
+            <a href="create.php?type=academic_stage" id="btnOpenForm" class="btn-download">
                 <i class='bx bxs-plus-circle'></i>
                 <span class="text">Add</span>
             </a>

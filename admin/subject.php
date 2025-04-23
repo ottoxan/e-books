@@ -43,7 +43,7 @@ if (isset($_SESSION["user_id"])) {
             <div class="left">
                 <h1>Subjects</h1>
             </div>
-            <a href="create-subject.php" class="btn-download">
+            <a href="create.php?type=subject" class="btn-download">
                 <i class='bx bxs-plus-circle'></i>
                 <span class="text">Add</span>
             </a>
