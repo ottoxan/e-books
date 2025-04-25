@@ -189,7 +189,6 @@ body {
 
 #sidebar.hide~#content {
 	width: calc(100% - 60px);
-	left: 60px;
 }
 
 

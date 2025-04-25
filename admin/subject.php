@@ -57,9 +57,9 @@ if (isset($_SESSION["user_id"])) {
                     <thead>
                         <tr>
                             <th>Subject</th>
-                            <th>Academic Stage</th>
-                            <th>Grade</th>
                             <th>Semester</th>
+                            <th>Grade</th>
+                            <th>Academic Stage</th>
                             <th>Edit</th>
                         </tr>
                     </thead>

@@ -37,15 +37,6 @@ $resultStages = $mysqli->query($sqlStages);
                             <a class="nav-link" href="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Experience">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Project</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                     </ul>
@@ -65,13 +56,15 @@ $resultStages = $mysqli->query($sqlStages);
 
         <div class="projects-grid">
             <?php while ($row = $resultStages->fetch_assoc()): ?>
-
-
                 <div class="project-card">
                     <img src="#" alt="">
                     <h3>
                         <?php echo htmlspecialchars($row["academic_stage"]); ?>
                     </h3>
+                    <p>
+                        <?php echo htmlspecialchars($row["academic_stage"]); ?>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, fugit dolor. Veniam numquam minus quibusdam minima. Inventore dignissimos voluptatem in, alias molestias possimus culpa iure eum perspiciatis perferendis assumenda consequatur.
+                    </p>
                     <div class="btn-grup">
                         <div class="btn">Button</div>
                         <div class="btn">Button</div>
@@ -87,19 +80,6 @@ $resultStages = $mysqli->query($sqlStages);
             <li>
                 <a href="#about">About</a>
             </li>
-
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-
             <li>
                 <a href="#contact">Contact</a>
             </li>
@@ -108,7 +88,7 @@ $resultStages = $mysqli->query($sqlStages);
         <p class="copyright">@ All Right Reserved | HYAHYA</p>
     </footer>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 
