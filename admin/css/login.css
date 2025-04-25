@@ -1,0 +1,13 @@
+.body {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.form {
+    width: 100%;
+    max-width: 400px;
+}
