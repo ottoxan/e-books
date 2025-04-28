@@ -2,6 +2,8 @@
 
 session_start();
 
+require 'partials/helpers.php'; // Include the helpers.php file
+
 if (isset($_SESSION["user_id"])) {
     $mysqli = require "config/database.php";
     $sql = "SELECT * FROM user WHERE id = {$_SESSION["user_id"]}";
@@ -60,12 +62,7 @@ $success_message = isset($_GET['success_message']) ? urldecode($_GET['success_me
                                     <?php echo htmlspecialchars($row["academic_stage"]); ?>
                                 </td>
                                 <td>
-                                    <a href='edit-academic.php?id=<?php echo htmlspecialchars($row["id"]); ?>' class='btn-primary m-1 p-1 rounded-2'>
-                                        <span class='text'>Edit</span>
-                                    </a>
-                                    <a href='delete.php?type=academic_stage&id=<?php echo $row['id']; ?>' class='btn-danger p-1 rounded-2'>
-                                        <span class='text'>Delete</span>
-                                    </a>
+                                    <?php echo renderActionButtons('academic', $row['id'], 'academic_stage'); ?>
                                 </td>
                             </tr>
                         </tbody>
@@ -75,6 +72,9 @@ $success_message = isset($_GET['success_message']) ? urldecode($_GET['success_me
         </div>
     </main>
     <script src="js/form.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- MAIN -->
 
