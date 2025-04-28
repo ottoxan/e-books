@@ -2,6 +2,9 @@
 
 session_start();
 
+require 'partials/helpers.php'; // Include the helpers.php file
+
+
 if (isset($_SESSION["user_id"])) {
     $mysqli = require "config/database.php";
 
@@ -73,12 +76,7 @@ if (isset($_SESSION["user_id"])) {
                                     <?php echo htmlspecialchars($row["academic_stage"] ?? 'null'); ?>
                                 </td>
                                 <td>
-                                    <a href="edit-semester.php?id=<?php echo htmlspecialchars($row["id"]); ?>" class="btn-primary m-1 p-1 rounded-2">
-                                        <span class="text">Edit</span>
-                                    </a>
-                                    <a href="delete.php?type=semester&id=<?php echo $row['id']; ?>" class="btn-danger p-1 rounded-2">
-                                        <span class="text">Delete</span>
-                                    </a>
+                                    <?php echo renderActionButtons('semester', $row['id'], 'semester'); ?>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -88,6 +86,10 @@ if (isset($_SESSION["user_id"])) {
         </div>
     </main>
     <!-- MAIN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <?php include 'partials/footer.php' ?>
 
 <?php else: ?>

@@ -2,6 +2,8 @@
 
 session_start();
 
+require 'partials/helpers.php'; // Include the helpers.php file
+
 if (isset($_SESSION["user_id"])) {
     $mysqli = require "config/database.php";
     $sql = "SELECT * FROM user WHERE id = {$_SESSION["user_id"]}";
@@ -60,32 +62,7 @@ $success_message = isset($_GET['success_message']) ? urldecode($_GET['success_me
                                     <?php echo htmlspecialchars($row["academic_stage"]); ?>
                                 </td>
                                 <td>
-                                    <button onclick="location.href='edit-academic.php?id=<?php echo htmlspecialchars($row['id']); ?>'" class='btn-primary m-1 p-1 rounded-2'>
-                                        <span class='text'>Edit</span>
-                                    </button>
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn-danger p-1 rounded-2" data-toggle="modal" data-target="#exampleModalCenter">
-                                        Delete
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" onclick="location.href='delete.php?type=academic_stage&id=<?php echo $row['id']; ?>'" class="btn btn-danger">Yes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    <?php echo renderActionButtons('academic', $row['id'], 'academic_stage'); ?>
                                 </td>
                             </tr>
                         </tbody>
