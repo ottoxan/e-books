@@ -39,10 +39,47 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 
-
 </head>
 
 <body>
+
+    <div class="login-div">
+        <div class="logo">
+            <img src="#" alt="">
+        </div>
+
+        <div class="title">Black Matrik</div>
+        <div class="sub-title">Technology & Design </div>
+
+        <div class="form">
+
+            <div class="username">
+                <input type="password" placeholder="Username or Email">
+            </div>
+
+            <div class="username">
+                <input type="text" placeholder="Password"><input>
+            </div>
+
+            <div class="options">
+                <div class="remember-me">
+                    <input id="remember-me" type="checkbox">
+                    <label for="remember-me">Remember me?</label>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#">Forgot Password</a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <button class="signin-btn">LOGIN</button>
+        <div class="sign-up">
+            <a href="#">New to Black Matrix? Sign Up here!</a>
+        </div>
+    </div>
     <div>
         <h1 class="">Login</h1>
 
