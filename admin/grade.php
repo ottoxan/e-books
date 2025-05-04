@@ -2,6 +2,40 @@
 
 session_start();
 
+if (!isset($_SESSION["user_id"])) {
+    die("Unauthorized access.");
+}
+
+$mysqli = require "config/database.php";
+
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+
+    if ($action === 'getGrades') {
+        $stage_id = $_GET['stage'] ?? null;
+
+        $sqlGrades = "
+            SELECT grade.id, grade.grade, academic_stage.academic_stage 
+            FROM grade
+            LEFT JOIN academic_stage ON grade.academic_id = academic_stage.id
+            WHERE 1=1
+        ";
+
+        if ($stage_id) {
+            $sqlGrades .= " AND academic_stage.id = " . intval($stage_id);
+        }
+
+        $resultGrades = $mysqli->query($sqlGrades);
+
+        $grades = [];
+        while ($row = $resultGrades->fetch_assoc()) {
+            $grades[] = $row;
+        }
+        echo json_encode($grades);
+        exit;
+    }
+}
+
 require 'partials/helpers.php'; // Include the helpers.php file
 
 
@@ -59,6 +93,26 @@ $success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['suc
             </a>
         </div>
 
+        <!-- Filters -->
+        <form method="GET" class="mb-3">
+            <div class="row">
+                <!-- Academic Stage Filter -->
+                <div class="col-md-12">
+                    <label for="stage" class="form-label">Filter by Academic Stage:</label>
+                    <select name="stage" id="stage" class="form-select" onchange="updateTable()">
+                        <option value="">All Academic Stages</option>
+                        <?php
+                        $sqlStages = "SELECT * FROM academic_stage";
+                        $resultStages = $mysqli->query($sqlStages);
+                        while ($row = $resultStages->fetch_assoc()): ?>
+                            <option value="<?php echo $row['id']; ?>">
+                                <?php echo htmlspecialchars($row['academic_stage']); ?>
+                            </option>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
+            </div>
+        </form>
 
         <div class="table-data">
             <div class="order">
@@ -71,22 +125,9 @@ $success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['suc
                             <th>Edit</th>
                         </tr>
                     </thead>
-                    <?php while ($row = $resultStages->fetch_assoc()): ?>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <?php echo htmlspecialchars($row["grade"]); ?>
-                                </td>
-                                <td>
-                                    <?php echo htmlspecialchars($row["academic_stage"] ?? 'null'); ?>
-                                </td>
-                                <td>
-                                    <?php echo renderActionButtons('grade', $row['id'], 'grade'); ?>
-                                </td>
-                            </tr>
-                        </tbody>
-                    <?php endwhile; ?>
-
+                    <tbody id="grade-table-body">
+                        <!-- Table rows will be dynamically populated -->
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -95,6 +136,7 @@ $success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['suc
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/grade.js"></script>
 
 
     <?php include 'partials/footer.php' ?>
