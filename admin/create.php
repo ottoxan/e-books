@@ -43,6 +43,18 @@ switch ($type) {
             'label' => 'Semester (Grade - Academic Stage)',
         ];
         break;
+    case 'ebooks':
+        $entity_name = 'Ebooks';
+        $fields = ['book_title', 'subject_id', 'book_file_name'];
+        $dropdowns['subject_id'] = [
+            'query' => "SELECT subject.id, subject.subject, semester.semester_number, grade.grade, academic_stage.academic_stage 
+                    FROM subject
+                    JOIN semester ON subject.semester_id = semester.id
+                    JOIN grade ON semester.grade_id = grade.id
+                    JOIN academic_stage ON grade.academic_id = academic_stage.id",
+            'label' => 'Subject (Semester - Grade - Academic Stage)',
+        ];
+        break;
     default:
         die("Invalid type");
 }
@@ -50,10 +62,36 @@ switch ($type) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = [];
     foreach ($fields as $field) {
-        $data[$field] = $_POST[$field] ?? '';
-        if (empty($data[$field])) {
-            $error_message = ucfirst(str_replace("_", " ", $field)) . " is required";
-            break;
+        if ($field === 'book_file_name') {
+            // Handle file upload
+            if (isset($_FILES['book_file_name']) && $_FILES['book_file_name']['error'] === UPLOAD_ERR_OK) {
+                $upload_dir = 'uploads/ebooks/';
+                $file_name = basename($_FILES['book_file_name']['name']);
+                $target_file = $upload_dir . $file_name;
+
+                // Ensure the upload directory exists
+                if (!is_dir($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
+
+                // Move the uploaded file to the target directory
+                if (move_uploaded_file($_FILES['book_file_name']['tmp_name'], $target_file)) {
+                    $data[$field] = $file_name;
+                } else {
+                    $error_message = "Failed to upload the file.";
+                    break;
+                }
+            } else {
+                $error_message = "File is required.";
+                break;
+            }
+        } else {
+            // Handle regular fields
+            $data[$field] = $_POST[$field] ?? '';
+            if (empty($data[$field])) {
+                $error_message = ucfirst(str_replace("_", " ", $field)) . " is required";
+                break;
+            }
         }
     }
 
@@ -95,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php } ?>
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <h1>Create <?php echo htmlspecialchars($entity_name); ?></h1>
             <?php foreach ($fields as $field): ?>
                 <?php if (isset($dropdowns[$field])): ?>
@@ -108,18 +146,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             while ($row = $result->fetch_assoc()): ?>
                                 <option value="<?php echo htmlspecialchars($row['id']); ?>">
                                     <?php
-                                    // Display multiple fields for better context
-                                    if ($field === 'grade_id') {
-                                        echo htmlspecialchars($row['grade'] . " (" . $row['academic_stage'] . ")");
-                                    } elseif ($field === 'semester_id') {
-                                        echo htmlspecialchars("Semester " . $row['semester_number'] . " - " . $row['grade'] . " (" . $row['academic_stage'] . ")");
-                                    } else {
-                                        echo htmlspecialchars($row[array_keys($row)[1]]);
-                                    }
+                                    // Display multiple fields for better context, with fallback values
+                                    echo htmlspecialchars(
+                                        ($row['subject'] ?? '') . ' ' . 
+                                        ($row['semester_number'] ?? '') . ' ' .
+                                        ($row['grade'] ?? '') . ' ' .
+                                        ($row['academic_stage'] ?? '')
+                                    );
                                     ?>
                                 </option>
                             <?php endwhile; ?>
                         </select>
+                    </div>
+                <?php elseif ($field === 'book_file_name'): ?>
+                    <div class="form-group">
+                        <label for="<?php echo $field; ?>">Book File (PDF)</label>
+                        <input type="file" class="form-control" id="<?php echo $field; ?>" name="<?php echo $field; ?>" accept=".pdf">
                     </div>
                 <?php else: ?>
                     <div class="form-group">

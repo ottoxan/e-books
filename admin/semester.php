@@ -24,8 +24,8 @@ if (isset($_SESSION["user_id"])) {
             grade.grade, 
             academic_stage.academic_stage 
         FROM semester
-        JOIN grade ON semester.grade_id = grade.id
-        JOIN academic_stage ON grade.academic_id = academic_stage.id
+        LEFT JOIN grade ON semester.grade_id = grade.id
+        LEFT JOIN academic_stage ON grade.academic_id = academic_stage.id
     ";
     $resultSemesters = $mysqli->query($sqlSemesters);
 
@@ -33,6 +33,9 @@ if (isset($_SESSION["user_id"])) {
         die("Database query failed: " . $mysqli->error);
     }
 }
+
+$success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['success_message']) : null;
+
 ?>
 
 <!-- MAIN -->
@@ -40,6 +43,12 @@ if (isset($_SESSION["user_id"])) {
     <?php include 'partials/header.php' ?>
 
     <main>
+        <?php
+        if (!empty($success_message)) { ?>
+            <div class="alert alert-success" role="alert">
+                <?php echo $success_message; ?>
+            </div>
+        <?php } ?>
         <div class="head-title">
             <div class="left">
                 <h1>Semester</h1>

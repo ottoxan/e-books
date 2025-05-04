@@ -11,6 +11,11 @@ if (isset($_GET['type']) && isset($_GET['id'])) {
     $redirect_url = '';
 
     switch ($type) {
+        case 'ebooks':
+            $table = 'ebooks';
+            $redirect_url = 'ebooks.php';
+            $success_message = "ebook deleted successfully";
+            break;
         case 'subject':
             $table = 'subject';
             $redirect_url = 'subject.php';

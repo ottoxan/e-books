@@ -21,13 +21,14 @@ if (isset($_SESSION["user_id"])) {
         SELECT 
             subject.id,
             subject.subject, 
+            
             semester.semester_number, 
             grade.grade, 
             academic_stage.academic_stage 
         FROM subject
-        JOIN semester ON subject.semester_id = semester.id
-        JOIN grade ON semester.grade_id = grade.id
-        JOIN academic_stage ON grade.academic_id = academic_stage.id
+        LEFT JOIN semester ON subject.semester_id = semester.id
+        LEFT JOIN grade ON semester.grade_id = grade.id
+        LEFT JOIN academic_stage ON grade.academic_id = academic_stage.id
     ";
     $resultSubjects = $mysqli->query($sqlSubjects);
 
@@ -35,6 +36,9 @@ if (isset($_SESSION["user_id"])) {
         die("Database query failed: " . $mysqli->error);
     }
 }
+
+$success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['success_message']) : null;
+
 ?>
 
 <!-- MAIN -->
@@ -42,6 +46,12 @@ if (isset($_SESSION["user_id"])) {
     <?php include 'partials/header.php' ?>
 
     <main>
+        <?php
+        if (!empty($success_message)) { ?>
+            <div class="alert alert-success" role="alert">
+                <?php echo $success_message; ?>
+            </div>
+        <?php } ?>
         <div class="head-title">
             <div class="left">
                 <h1>Subjects</h1>
@@ -70,19 +80,19 @@ if (isset($_SESSION["user_id"])) {
                         <?php while ($row = $resultSubjects->fetch_assoc()): ?>
                             <tr>
                                 <td>
-                                    <?php echo htmlspecialchars($row["subject"]); ?>
+                                    <?php echo htmlspecialchars($row["subject"] ?? 'null'); ?>
                                 </td>
                                 <td>
-                                    <?php echo htmlspecialchars($row["semester_number"]); ?>
+                                    <?php echo htmlspecialchars($row["semester_number"] ?? 'null'); ?>
                                 </td>
                                 <td>
-                                    <?php echo htmlspecialchars($row["grade"]); ?>
+                                    <?php echo htmlspecialchars($row["grade"] ?? 'null'); ?>
                                 </td>
                                 <td>
-                                    <?php echo htmlspecialchars($row["academic_stage"]); ?>
+                                    <?php echo htmlspecialchars($row["academic_stage"] ?? 'null'); ?>
                                 </td>
                                 <td>
-                                    <?php echo renderActionButtons('subject', $row['id'], 'subject'); ?>
+                                    <?php echo renderActionButtons('subject', $row['id'], 'subject' ?? 'null'); ?>
                                 </td>
                             </tr>
                         <?php endwhile; ?>

@@ -34,66 +34,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="css/login.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 
 </head>
 
 <body>
 
-    <div class="login-div">
-        <div class="logo">
-            <img src="#" alt="">
-        </div>
-
-        <div class="title">Black Matrik</div>
-        <div class="sub-title">Technology & Design </div>
-
-        <div class="form">
-
-            <div class="username">
-                <input type="password" placeholder="Username or Email">
-            </div>
-
-            <div class="username">
-                <input type="text" placeholder="Password"><input>
-            </div>
-
-            <div class="options">
-                <div class="remember-me">
-                    <input id="remember-me" type="checkbox">
-                    <label for="remember-me">Remember me?</label>
-                </div>
-
-                <div class="forgot-password">
-                    <a href="#">Forgot Password</a>
-                </div>
-
-
-            </div>
-        </div>
-
-        <button class="signin-btn">LOGIN</button>
-        <div class="sign-up">
-            <a href="#">New to Black Matrix? Sign Up here!</a>
-        </div>
-    </div>
-    <div>
-        <h1 class="">Login</h1>
+    <div class="login-div d-flex justify-content-center align-items-center flex-column">
+        <div class="title">Ebooks</div>
+        <div class="sub-title">Login</div>
 
         <?php if ($is_invalid): ?>
-            <em> Invalid Login</em>
+            <em class="text-danger"> Invalid Login</em>
         <?php endif; ?>
 
-        <form method="POST">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" value="<?php htmlspecialchars($_POST["email"] ?? "") ?>" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-            <button>Login</button>
+        <form method="POST" class="form">
+
+            <div class="username">
+                <input placeholder="Email" class="text-white" type="text" id="email" name="email" value="<?php htmlspecialchars($_POST["email"] ?? "") ?>" required>
+            </div>
+
+            <div class="password">
+                <input type="password" id="password" name="password" placeholder="Password" class="text-white">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="signin-btn">LOGIN</button>
+            </div>
+        </form>
     </div>
+
 </body>
 
 </html>

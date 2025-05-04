@@ -42,8 +42,8 @@ $page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 
                 <span class="text">Subject</span>
             </a>
         </li>
-        <li class="<?php echo $page == 'ebook.php' ? 'active' : ''; ?>">
-            <a href="ebook.php">
+        <li class="<?php echo $page == 'ebooks.php' ? 'active' : ''; ?>">
+            <a href="ebooks.php">
                 <i class='bx bxs-group'></i>
                 <span class="text">Ebooks</span>
             </a>
@@ -70,4 +70,3 @@ $page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 
 
 
 <!-- SIDEBAR -->
-
