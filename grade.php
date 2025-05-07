@@ -72,11 +72,10 @@ if ($id) {
                 <div class="projects-grid">
                     <?php while ($row = $resultGrade->fetch_assoc()): ?>
                         <div class="project-card" onclick="location.href='semester.php?id=<?php echo $row['id']; ?>'">
-                            <img src="assets/<?php echo htmlspecialchars($row[""] ?? null); ?>.png" class="card-image" alt="Picture">
+                            <?php $imageIndex = isset($imageIndex) ? $imageIndex + 1 : 1; // Set the desired image index dynamically 
+                            ?>
+                            <img src="assets/<?php echo $imageIndex; ?>.jpg" class="card-image" alt="Picture">
                             <h3><?php echo htmlspecialchars($row["grade"]); ?></h3>
-                            <div class="btn-grup">
-                                <a href="semester.php?id=<?php echo $row['id']; ?>" class="btn">View Details</a>
-                            </div>
                         </div>
                     <?php endwhile; ?>
                 </div>

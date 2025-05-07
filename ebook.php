@@ -11,10 +11,10 @@ if ($id) {
     $id = intval($id);
 
     // Fetch data based on the 'id'
-    $sqlSemester = "SELECT * FROM semester WHERE grade_id = $id";
-    $resultSemeter = $mysqli->query($sqlSemester);
+    $sqlEbook = "SELECT * FROM ebooks WHERE subject_id = $id";
+    $resultEbook = $mysqli->query($sqlEbook);
 
-    if (!$resultSemeter) {
+    if (!$resultEbook) {
         die("Database query failed: " . $mysqli->error);
     }
 } else {
@@ -70,17 +70,34 @@ if ($id) {
             <section class="hero-section">
                 <h2 class="section-title"></h2>
                 <div class="projects-grid">
-                    <?php while ($row = $resultSemeter->fetch_assoc()): ?>
-                        <div class="project-card" onclick="location.href='subject.php?id=<?php echo $row['id']; ?>'">
-                            <?php $imageIndex = isset($imageIndex) ? $imageIndex + 1 : 1; // Set the desired image index dynamically ?>
-                            <img src="assets/<?php echo $imageIndex; ?>.jpg" class="card-image" alt="Picture">
-                            <h3><?php echo htmlspecialchars($row["semester_number"]); ?></h3>
+                    <?php while ($row = $resultEbook->fetch_assoc()): ?>
+                        <div class="project-card" onclick="showPdfModal('<?php echo 'uploads/ebooks/' . htmlspecialchars($row['book_file_name']); ?>')">
+                            <img src="uploads/ebooks/<?php echo htmlspecialchars($row["file_cover"] ?? 'default-cover.jpg'); ?>" class="card-image" alt="Picture">
+                            <h3><?php echo htmlspecialchars($row["book_title"]); ?></h3>
+                            <div class="btn-grup">
+                                <a href="#" class="btn">View PDF</a>
+                            </div>
                         </div>
                     <?php endwhile; ?>
                 </div>
             </section>
         </main>
         <!-- End Section -->
+
+        <!-- PDF Modal -->
+        <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pdfModalLabel">Ebook Preview</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="pdfViewer" src="" width="100%" height="600px" style="border: none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer>
@@ -97,6 +114,14 @@ if ($id) {
     </div> <!-- Tutup wrapper -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showPdfModal(pdfUrl) {
+            const pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = pdfUrl; // Set the PDF file URL
+            const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
+            pdfModal.show(); // Show the modal
+        }
+    </script>
 </body>
 
 </html>
