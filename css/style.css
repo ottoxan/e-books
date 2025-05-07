@@ -86,7 +86,7 @@ body {
 
 section {
     min-height: 100vh;
-    padding: 10rem 30%;
+    padding: 10rem 15%;
     width: 100%;
     position: relative;
 }
@@ -118,7 +118,7 @@ section {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.card-image{
+.card-image {
     height: 300px;
 }
 
