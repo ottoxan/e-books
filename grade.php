@@ -68,7 +68,7 @@ if ($id) {
         <!-- Section -->
         <main class="content">
             <section class="hero-section">
-                <h2 class="section-title"></h2>
+                <h2 class="section-title">Grade</h2>
                 <div class="projects-grid">
                     <?php while ($row = $resultGrade->fetch_assoc()): ?>
                         <div class="project-card" onclick="location.href='semester.php?id=<?php echo $row['id']; ?>'">

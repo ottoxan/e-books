@@ -11,8 +11,25 @@ if ($id) {
     $id = intval($id);
 
     // Fetch data based on the 'id'
-    $sqlEbook = "SELECT * FROM ebooks WHERE subject_id = $id";
-    $resultEbook = $mysqli->query($sqlEbook);
+    $sqlEbook = "SELECT 
+            ebooks.id,
+            ebooks.book_title,
+            ebooks.book_file_name,
+            ebooks.file_cover,
+            academic_stage.academic_stage,
+            grade.grade,
+            semester.semester_number,
+            subject.subject
+        FROM ebooks
+        LEFT JOIN academic_stage ON ebooks.academic_id = academic_stage.id
+        LEFT JOIN grade ON ebooks.grade_id = grade.id
+        LEFT JOIN semester ON ebooks.semester_id = semester.id
+        LEFT JOIN subject ON ebooks.subject_id = subject.id
+        WHERE subject_id = ?";
+    $stmt = $mysqli->prepare($sqlEbook);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultEbook = $stmt->get_result();
 
     if (!$resultEbook) {
         die("Database query failed: " . $mysqli->error);
@@ -20,6 +37,13 @@ if ($id) {
 } else {
     die("No ID provided in the URL.");
 }
+
+$ebooks = []; // Initialize an empty array to store the data
+
+while ($row = $resultEbook->fetch_assoc()) {
+    $ebooks[] = $row; // Store each row in the array
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +58,7 @@ if ($id) {
 </head>
 
 <body>
-    <div class="wrapper"> <!-- Mulai pembungkus -->
+    <div class="wrapper">
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top">
@@ -45,7 +69,6 @@ if ($id) {
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                             <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
@@ -68,18 +91,36 @@ if ($id) {
         <!-- Section -->
         <main class="content">
             <section class="hero-section">
-                <h2 class="section-title"></h2>
+                <h2 class="section-title">Ebooks</h2>
                 <div class="projects-grid">
-                    <?php while ($row = $resultEbook->fetch_assoc()): ?>
-                        <div class="project-card" onclick="showPdfModal('<?php echo 'uploads/ebooks/' . htmlspecialchars($row['book_file_name']); ?>')">
-                            <img src="uploads/ebooks/<?php echo htmlspecialchars($row["file_cover"] ?? 'default-cover.jpg'); ?>" class="card-image" alt="Picture">
-                            <h3><?php echo htmlspecialchars($row["book_title"]); ?></h3>
-                            <div class="btn-grup">
-                                <a href="#" class="btn">View PDF</a>
+                    <?php if (!empty($ebooks)): ?>
+                        <?php foreach ($ebooks as $ebook): ?>
+                            <div class="project-card" onclick="showPdfModal('<?php echo 'uploads/ebooks/' . htmlspecialchars($ebook['book_file_name']); ?>')">
+                                <img src="uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" class="card-image" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>">
+                                <h3><?php echo htmlspecialchars($ebook["book_title"]); ?></h3>
+                                <div class="btn-grup">
+                                    <a href="#" class="btn">View PDF</a>
+                                </div>
                             </div>
-                        </div>
-                    <?php endwhile; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>No ebooks available for this subject.</p>
+                    <?php endif; ?>
                 </div>
+                <?php if (!empty($ebooks)): ?>
+                    <div class="pt-5">
+                        <h3>Book Name: <?php echo htmlspecialchars($ebooks[0]['book_title']); ?></h3>
+                    </div>
+                    <div class="pt-5">
+                        <h3>Grade: <?php echo htmlspecialchars($ebooks[0]['grade']); ?></h3>
+                    </div>
+                    <div class="pt-5">
+                        <h3>Semester: <?php echo htmlspecialchars($ebooks[0]['semester_number']); ?></h3>
+                    </div>
+                    <div class="pt-5">
+                        <h3>Academic Stage: <?php echo htmlspecialchars($ebooks[0]['academic_stage']); ?></h3>
+                    </div>
+                <?php endif; ?>
             </section>
         </main>
         <!-- End Section -->
@@ -118,7 +159,7 @@ if ($id) {
         function showPdfModal(pdfUrl) {
             const pdfViewer = document.getElementById('pdfViewer');
             pdfViewer.src = pdfUrl; // Set the PDF file URL
-            const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
+            const pdfModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('pdfModal'));
             pdfModal.show(); // Show the modal
         }
     </script>

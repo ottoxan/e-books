@@ -68,11 +68,11 @@ if ($id) {
         <!-- Section -->
         <main class="content">
             <section class="hero-section">
-                <h2 class="section-title"></h2>
+                <h2 class="section-title">Subject</h2>
                 <div class="projects-grid">
                     <?php while ($row = $resultSubject->fetch_assoc()): ?>
                         <div class="project-card" onclick="location.href='ebook.php?id=<?php echo $row['id']; ?>'">
-                            <img src="assets/<?php echo htmlspecialchars($row[""] ?? null); ?>.png" class="card-image" alt="Picture">
+                            <img src='assets/<?php echo htmlspecialchars($row["subject"]); ?>.jpg' class="card-image" alt="Picture">
                             <h3><?php echo htmlspecialchars($row["subject"]); ?></h3>
                             <div class="btn-grup">
                                 <a href="ebook.php?id=<?php echo $row['id']; ?>" class="btn">View Details</a>
@@ -80,6 +80,7 @@ if ($id) {
                         </div>
                     <?php endwhile; ?>
                 </div>
+                
             </section>
         </main>
         <!-- End Section -->

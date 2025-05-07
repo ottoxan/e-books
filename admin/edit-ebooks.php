@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } else {
         // Handle book file upload if a new file is provided
         if (!empty($new_file_name)) {
-            $upload_dir = 'uploads/ebooks/';
+            $upload_dir = '../uploads/ebooks/';
             $target_file = $upload_dir . basename($new_file_name);
 
             if (!is_dir($upload_dir)) {
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // Handle book cover upload if a new cover is provided
         if (!empty($new_cover_name)) {
-            $upload_dir = 'uploads/ebooks/';
+            $upload_dir = '../uploads/ebooks/';
             $target_cover = $upload_dir . basename($new_cover_name);
 
             if (!is_dir($upload_dir)) {
@@ -238,14 +238,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <label for="book_file_name">Book File (PDF)</label>
                 <input type="file" class="form-control" id="book_file_name" name="book_file_name" accept=".pdf">
                 <?php if (!empty($book_file_name)): ?>
-                    <small>Current file: <a href="uploads/ebooks/<?php echo htmlspecialchars($book_file_name); ?>" target="_blank"><?php echo htmlspecialchars($book_file_name); ?></a></small>
+                    <small>Current file: <a href="../uploads/ebooks/<?php echo htmlspecialchars($book_file_name); ?>" target="_blank"><?php echo htmlspecialchars($book_file_name); ?></a></small>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="file_cover">Book Cover (Optional)</label>
                 <input type="file" class="form-control" id="file_cover" name="file_cover" accept=".jpg,.jpeg,.png">
                 <?php if (!empty($file_cover)): ?>
-                    <small>Current cover: <a href="uploads/ebooks/<?php echo htmlspecialchars($file_cover); ?>" target="_blank"><?php echo htmlspecialchars($file_cover); ?></a></small>
+                    <small>Current cover: <a href="../uploads/ebooks/<?php echo htmlspecialchars($file_cover); ?>" target="_blank"><?php echo htmlspecialchars($file_cover); ?></a></small>
                 <?php endif; ?>
             </div>
             <div class="row mb-3">
