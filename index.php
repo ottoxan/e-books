@@ -77,7 +77,7 @@ $resultStages = $mysqli->query($sqlStages);
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <p class="copyright">&copy; All Rights Reserved | HYAHYA</p>
+            <p class="copyright">&copy; All Rights Reserved | EBOOKS.COM</p>
         </footer>
 
     </div> <!-- Tutup wrapper -->
