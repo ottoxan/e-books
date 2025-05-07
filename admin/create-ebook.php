@@ -7,7 +7,7 @@ $success_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $book_title = $_POST['book_title'] ?? '';
-        $academic_id = $_POST['stage'] ?? '';
+    $academic_id = $_POST['stage'] ?? '';
     $grade_id = $_POST['grade'] ?? '';
     $semester_id = $_POST['semester'] ?? '';
     $subject_id = $_POST['subject'] ?? '';
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "Book file (PDF) is required.";
     } else {
         // Handle file uploads
-        $upload_dir = 'uploads/ebooks/';
+        $upload_dir = '../uploads/ebooks/';
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
