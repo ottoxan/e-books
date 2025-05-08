@@ -198,6 +198,10 @@ footer .copyright {
         gap: 10px;
     }
 
+    .card-image {
+        height: 150px;
+    }
+
     footer {
         padding: 15px 5px;
     }
