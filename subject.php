@@ -33,9 +33,6 @@ if ($id) {
                 <div class="project-card" onclick="location.href='ebook.php?id=<?php echo $row['id']; ?>'">
                     <img src='assets/<?php echo htmlspecialchars($row["subject"]); ?>.jpg' class="card-image" alt="Picture">
                     <h3><?php echo htmlspecialchars($row["subject"]); ?></h3>
-                    <div class="btn-grup">
-                        <a href="ebook.php?id=<?php echo $row['id']; ?>" class="btn">View Details</a>
-                    </div>
                 </div>
             <?php endwhile; ?>
         </div>

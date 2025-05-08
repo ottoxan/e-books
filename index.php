@@ -18,9 +18,7 @@ $resultStages = $mysqli->query($sqlStages);
                         <div class="project-card" onclick="location.href='grade.php?id=<?php echo $row['id']; ?>'">
                             <img src="assets/<?php echo htmlspecialchars($row["academic_stage"]); ?>.png" class="card-image" alt="">
                             <h3><?php echo htmlspecialchars($row["academic_stage"]); ?></h3>
-                            <div class="btn-grup">
-                                <a href="grade.php?id=<?php echo $row['id']; ?>" class="btn">View Details</a>
-                            </div>
+
                         </div>
                     <?php endwhile; ?>
                 </div>
