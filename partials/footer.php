@@ -1,8 +1,8 @@
 <!-- Footer -->
 <footer>
     <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"><?= __('About')?></a></li>
+        <li><a href="#contact"><?= __('Contact')?></a></li>
     </ul>
     <p class="copyright">&copy; All Rights Reserved</p>
 </footer>

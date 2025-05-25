@@ -1,4 +1,5 @@
 <?php
+require "lang.php";
 
 session_start();
 $mysqli = require "admin/config/database.php";
@@ -58,27 +59,27 @@ while ($row = $resultEbook->fetch_assoc()) {
                         <img src="uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" class="card-image" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>">
                         <h3><?php echo htmlspecialchars($ebook["book_title"]); ?></h3>
                         <div class="btn-grup">
-                            <a href="#" class="btn">View PDF</a>
+                            <a href="#" class="btn"><?= __('View PDF') ?></a>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>No ebooks available for this subject.</p>
+                <p><?= __('No ebooks available for this subject.') ?></p>
             <?php endif; ?>
         </div>
         <div class="mt-4 border border-3 border-secondary rounded-5 p-3">
             <?php if (!empty($ebooks)): ?>
                 <div class="">
-                    <p>Book Name: <?php echo htmlspecialchars($ebooks[0]['book_title']); ?></p>
+                    <p><?= __('Book Name') ?>: <?php echo htmlspecialchars($ebooks[0]['book_title']); ?></p>
                 </div>
                 <div class="">
-                    <p>Grade: <?php echo htmlspecialchars($ebooks[0]['grade']); ?></p>
+                    <p><?= __('Grade') ?>: <?php echo htmlspecialchars($ebooks[0]['grade']); ?></p>
                 </div>
                 <div class="">
-                    <p>Semester: <?php echo htmlspecialchars($ebooks[0]['semester_number']); ?></p>
+                    <p><?= __('Semester') ?>: <?php echo htmlspecialchars($ebooks[0]['semester_number']); ?></p>
                 </div>
                 <div class="">
-                    <p>Academic Stage: <?php echo htmlspecialchars($ebooks[0]['academic_stage']); ?></p>
+                    <p><?= __('Academic Stage') ?>: <?php echo htmlspecialchars($ebooks[0]['academic_stage']); ?></p>
                 </div>
             <?php endif; ?>
         </div>
