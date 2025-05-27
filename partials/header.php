@@ -1,3 +1,5 @@
+<?php require "lang.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,11 +25,44 @@
                     </div>
 
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <ul class="navbar-nav justify-content-center flex-grow-1 center-nav">
+                            <li class="nav-item"><a class="nav-link active" href="index.php"><?= __('Home') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#about"><?= __('About') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact"><?= __('Contact') ?></a></li>
                         </ul>
+                        <!-- Language Dropdown -->
+                        <form class="d-flex mx-1" role="search">
+                            <select class="form-select" id="languageSelect" onchange="changeLanguage(this.value)">
+                                <option value="en">English</option>
+                                <option value="id">Bahasa Indonesia</option>
+                                <option value="th">Thailand</option>
+                            </select>
+                        </form>
+
+                        <script>
+                            // Set language on dropdown from localStorage
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const lang = localStorage.getItem('lang') || 'en';
+                                document.getElementById('languageSelect').value = lang;
+                                setLangParam(lang, false);
+                            });
+
+                            function changeLanguage(lang) {
+                                localStorage.setItem('lang', lang);
+                                setLangParam(lang, true);
+                            }
+
+                            // Update the URL parameter for language and optionally reload
+                            function setLangParam(lang, reload = false) {
+                                const url = new URL(window.location);
+                                url.searchParams.set('lang', lang);
+                                if (reload) {
+                                    window.location = url.toString();
+                                } else {
+                                    window.history.replaceState({}, '', url);
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
                 <a href="admin/login.php" class="login-button">Login</a>

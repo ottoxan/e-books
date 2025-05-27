@@ -1,4 +1,5 @@
 <?php
+require "lang.php";
 
 session_start();
 $mysqli = require "admin/config/database.php";
@@ -27,7 +28,7 @@ if ($id) {
 <!-- Section -->
 <main class="content">
     <section class="hero-section">
-        <h2 class="section-title">Subject</h2>
+        <h2 class="section-title"><?= __('Subject') ?></h2>
         <div class="projects-grid">
             <?php while ($row = $resultSubject->fetch_assoc()): ?>
                 <div class="project-card" onclick="location.href='ebook.php?id=<?php echo $row['id']; ?>'">

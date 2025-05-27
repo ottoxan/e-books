@@ -46,6 +46,10 @@ body {
     transform: scale(1.1);
 }
 
+.center-nav{
+    margin-right: -181px;
+}
+
 /* Customs buttons*/
 .login-button {
     background-color: red;
