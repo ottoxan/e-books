@@ -220,6 +220,8 @@ footer .copyright {
     color: #bbb;
 }
 
+
+
 @media (max-width: 600px) {
     footer ul {
         flex-direction: column;
