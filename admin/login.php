@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 };
 
 ?>
+<?php require "../lang.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,38 +35,108 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Ebooks</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-
-
 </head>
 
 <body>
+    <div class="wrapper"> <!-- Mulai pembungkus -->
 
-    <div class="login-div d-flex justify-content-center align-items-center flex-column">
-        <div class="title">Ebooks</div>
-        <div class="sub-title">Login</div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto" href="#">Logo</a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
 
-        <?php if ($is_invalid): ?>
-            <em class="text-danger"> Invalid Login</em>
-        <?php endif; ?>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 center-nav">
+                            <li class="nav-item"><a class="nav-link active" href="index.php"><?= __('Home') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#about"><?= __('About') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact"><?= __('Contact') ?></a></li>
+                        </ul>
+                        <!-- Language Dropdown -->
+                        <form class="d-flex mx-1" role="search">
+                            <select class="form-select" id="languageSelect" onchange="changeLanguage(this.value)">
+                                <option value="en">English</option>
+                                <option value="id">Bahasa Indonesia</option>
+                                <option value="th">Thailand</option>
+                            </select>
+                        </form>
 
-        <form method="POST" class="form">
+                        <script>
+                            // Set language on dropdown from localStorage
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const lang = localStorage.getItem('lang') || 'en';
+                                document.getElementById('languageSelect').value = lang;
+                                setLangParam(lang, false);
+                            });
 
-            <div class="username">
-                <input placeholder="Email" class="text-white" type="text" id="email" name="email" value="<?php htmlspecialchars($_POST["email"] ?? "") ?>" required>
+                            function changeLanguage(lang) {
+                                localStorage.setItem('lang', lang);
+                                setLangParam(lang, true);
+                            }
+
+                            // Update the URL parameter for language and optionally reload
+                            function setLangParam(lang, reload = false) {
+                                const url = new URL(window.location);
+                                url.searchParams.set('lang', lang);
+                                if (reload) {
+                                    window.location = url.toString();
+                                } else {
+                                    window.history.replaceState({}, '', url);
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+                <a href="admin/login.php" class="login-button">Login</a>
+                <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
+        </nav>
 
-            <div class="password">
-                <input type="password" id="password" name="password" placeholder="Password" class="text-white">
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="signin-btn">LOGIN</button>
-            </div>
-        </form>
-    </div>
+        <div class="login-div d-flex justify-content-center align-items-center flex-column">
+            <div class="title">Ebooks</div>
+            <div class="sub-title">Login</div>
 
+            <?php if ($is_invalid): ?>
+                <em class="text-danger"> Invalid Login</em>
+            <?php endif; ?>
+
+            <form method="POST" class="form">
+
+                <div class="username">
+                    <input placeholder="Email" class="text-white" type="text" id="email" name="email" value="<?php htmlspecialchars($_POST["email"] ?? "") ?>" required>
+                </div>
+
+                <div class="password">
+                    <input type="password" id="password" name="password" placeholder="Password" class="text-white">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="signin-btn">LOGIN</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <ul>
+                <li><a href="#about"><?= __('About') ?></a></li>
+                <li><a href="#contact"><?= __('Contact') ?></a></li>
+            </ul>
+            <p class="copyright">&copy; All Rights Reserved</p>
+        </footer>
+
+    </div> <!-- Tutup wrapper -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

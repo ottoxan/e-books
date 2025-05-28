@@ -55,11 +55,39 @@ while ($row = $resultEbook->fetch_assoc()) {
         <div class="projects-grid">
             <?php if (!empty($ebooks)): ?>
                 <?php foreach ($ebooks as $ebook): ?>
-                    <div class="project-card" onclick="showPdfModal('<?php echo 'uploads/ebooks/' . htmlspecialchars($ebook['book_file_name']); ?>')">
-                        <img src="uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" class="card-image" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>">
-                        <h3><?php echo htmlspecialchars($ebook["book_title"]); ?></h3>
-                        <div class="btn-grup">
-                            <a href="#" class="btn"><?= __('View PDF') ?></a>
+                    <div class="ebook-card" onclick="showPdfModal('<?php echo 'uploads/ebooks/' . htmlspecialchars($ebook['book_file_name']); ?>')">
+                        <img src="uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" class="card-image rounded" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>">
+                        <div class="card-content justify-content-around">
+                            <h3><?php echo htmlspecialchars($ebook["book_title"]); ?></h3>
+                            <div class="btn-grup btn-primary">
+                                <a href="#" class="btn btn-primary"><?= __('View PDF') ?></a>
+                            </div>
+                            <div class="d-flex d-table-row w-100">
+                                <p class="my-3 w-25 text-start">Book Details</p>
+                                <div class="w-100 d-flex align-items-center">
+                                    <hr class="opacity-50 w-100">
+                                </div>
+                            </div>
+                            <div class="container text-start">
+                                <div class="row">
+                                    <div class="col ps-0">
+                                        <p><?= __('Subject') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['subject']); ?></span></p>
+
+                                    </div>
+                                    <div class="col">
+                                        <p><?= __('Academic Stage') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['academic_stage']); ?></span></p>
+
+                                    </div>
+                                    <div class="col">
+                                        <p><?= __('Grade') ?>: <br><span class="text-muted"><?php echo htmlspecialchars($ebook['grade']); ?></span></p>
+
+                                    </div>
+                                    <div class="col">
+                                        <p><?= __('Semester') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['semester_number']); ?></span></p>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -67,24 +95,11 @@ while ($row = $resultEbook->fetch_assoc()) {
                 <p><?= __('No ebooks available for this subject.') ?></p>
             <?php endif; ?>
         </div>
-        <div class="mt-4 border border-3 border-secondary rounded-5 p-3">
-            <?php if (!empty($ebooks)): ?>
-                <div class="">
-                    <p><?= __('Book Name') ?>: <?php echo htmlspecialchars($ebooks[0]['book_title']); ?></p>
-                </div>
-                <div class="">
-                    <p><?= __('Grade') ?>: <?php echo htmlspecialchars($ebooks[0]['grade']); ?></p>
-                </div>
-                <div class="">
-                    <p><?= __('Semester') ?>: <?php echo htmlspecialchars($ebooks[0]['semester_number']); ?></p>
-                </div>
-                <div class="">
-                    <p><?= __('Academic Stage') ?>: <?php echo htmlspecialchars($ebooks[0]['academic_stage']); ?></p>
-                </div>
-            <?php endif; ?>
-        </div>
     </section>
+    <?php include "allebooks.php" ?>
+
 </main>
+
 <!-- End Section -->
 
 <!-- PDF Modal -->

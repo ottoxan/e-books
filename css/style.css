@@ -2,8 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
+    font-family: "Manrope", sans-serif;    text-decoration: none;
     scroll-behavior: smooth;
     list-style: none;
 }
@@ -46,7 +45,7 @@ body {
     transform: scale(1.1);
 }
 
-.center-nav{
+.center-nav {
     margin-right: -181px;
 }
 
@@ -143,6 +142,32 @@ section {
     color: black;
 }
 
+.ebook-card {
+    flex-direction: row;
+    justify-content: left;
+    background-color: #E5F8FF;
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 2px solid black;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+
+.pdf-button {}
+
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
 .btn-group {
     display: flex;
     gap: 1rem;
@@ -151,7 +176,7 @@ section {
 .btn {
     border-radius: 2rem;
     padding: 0.2rem 1.5rem;
-    border: 2px solid black;
+    border: 2px solid white;
     cursor: pointer;
     font-weight: 500;
     white-space: nowrap;
@@ -162,6 +187,23 @@ section {
     background-color: black;
     color: white;
     transform: scale(1.05);
+}
+
+.book-card {
+    max-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-image {
+    width: 100%;
+    height: auto;
+}
+
+.badge {
+    font-size: 0.75rem;
+    margin-right: 5px;
 }
 
 footer {

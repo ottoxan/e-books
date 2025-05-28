@@ -37,8 +37,8 @@ html {
 }
 
 body.dark {
-	--light: #0C0C1E;
-	--grey: #060714;
+	--light: #222831;
+	--grey: #393E46;
 	--dark: #FBFBFB;
 }
 
@@ -207,6 +207,7 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 1000;
+	justify-content: space-between
 }
 
 #content nav::before {
@@ -314,6 +315,7 @@ body {
 	background: var(--grey);
 	cursor: pointer;
 	position: relative;
+	margin: 0;
 }
 
 #content nav .switch-mode::before {
@@ -387,7 +389,7 @@ body {
 	padding: 0 16px;
 	border-radius: 36px;
 	background: var(--blue);
-	color: var(--light);
+	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -578,6 +580,12 @@ body {
 #content main .table-data .todo .todo-list li:last-child {
 	margin-bottom: 0;
 }
+
+.form-label{
+	color: var(--dark);
+}
+
+
 
 /* MAIN */
 /* CONTENT */

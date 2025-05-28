@@ -87,9 +87,9 @@ $success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['suc
                                 </td>
                                 <td>
                                     <?php
-                                    $file_path = "uploads/ebooks/" . htmlspecialchars($row["book_file_name"] ?? '');
+                                    $file_path = "../uploads/ebooks/" . htmlspecialchars($row["book_file_name"] ?? '');
                                     if (!empty($row["book_file_name"]) && file_exists($file_path)): ?>
-                                        <a href="<?php echo $file_path; ?>" target="_blank">
+                                        <a href="<?php echo $file_path; ?>" target="_blank" class="text-wrap text-break">
                                             <?php echo htmlspecialchars($row["book_file_name"]); ?>
                                         </a>
                                     <?php else: ?>
@@ -98,9 +98,9 @@ $success_message = isset($_GET['success_message']) ? htmlspecialchars($_GET['suc
                                 </td>
                                 <td>
                                     <?php
-                                    $file_path = "uploads/ebooks/" . htmlspecialchars($row["file_cover"] ?? '');
+                                    $file_path = "../uploads/ebooks/" . htmlspecialchars($row["file_cover"] ?? '');
                                     if (!empty($row["file_cover"]) && file_exists($file_path)): ?>
-                                        <img src="<?php echo $file_path; ?>" alt="Book Cover" class="w-[50px] h-[50px]" >
+                                        <img src="<?php echo $file_path; ?>" alt="Book Cover" class="w-[50px] h-[50px]">
                                     <?php else: ?>
                                         <span>File not found</span>
                                     <?php endif; ?>

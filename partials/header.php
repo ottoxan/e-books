@@ -1,13 +1,17 @@
 <?php require "lang.php"; ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ebooks</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
 
@@ -39,33 +43,9 @@
                             </select>
                         </form>
 
-                        <script>
-                            // Set language on dropdown from localStorage
-                            document.addEventListener('DOMContentLoaded', function() {
-                                const lang = localStorage.getItem('lang') || 'en';
-                                document.getElementById('languageSelect').value = lang;
-                                setLangParam(lang, false);
-                            });
-
-                            function changeLanguage(lang) {
-                                localStorage.setItem('lang', lang);
-                                setLangParam(lang, true);
-                            }
-
-                            // Update the URL parameter for language and optionally reload
-                            function setLangParam(lang, reload = false) {
-                                const url = new URL(window.location);
-                                url.searchParams.set('lang', lang);
-                                if (reload) {
-                                    window.location = url.toString();
-                                } else {
-                                    window.history.replaceState({}, '', url);
-                                }
-                            }
-                        </script>
                     </div>
                 </div>
-                <a href="admin/login.php" class="login-button">Login</a>
+                <a href="login.php" class="login-button">Login</a>
                 <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

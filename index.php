@@ -6,8 +6,8 @@ $sqlStages = "SELECT * FROM academic_stage";
 $resultStages = $mysqli->query($sqlStages);
 ?>
 
-
 <?php include "partials/header.php" ?>
+
 
 <!-- Section -->
 <main class="content">
@@ -23,6 +23,10 @@ $resultStages = $mysqli->query($sqlStages);
             <?php endwhile; ?>
         </div>
     </section>
+    <?php include "allebooks.php" ?>
 </main>
+
 <!-- End Section -->
+
+
 <?php include "partials/footer.php" ?>

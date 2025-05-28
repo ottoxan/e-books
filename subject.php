@@ -39,6 +39,8 @@ if ($id) {
         </div>
 
     </section>
+    <?php include "allebooks.php" ?>
+
 </main>
 <!-- End Section -->
 
