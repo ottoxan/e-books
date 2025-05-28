@@ -52,3 +52,5 @@
             </div>
         </nav>
         <!-- End Navbar -->
+
+        <?php include "banner.php" ?>

@@ -98,6 +98,10 @@ button.signin-btn{
     text-align: center;
 }
 
+.signin-btn:hover {
+    background-color: blue;
+}
+
 .sign-up {
     text-align: center;
 }

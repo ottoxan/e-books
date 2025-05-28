@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #e8f8ff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 16px;
+  color: #555;
+}
+
+.logo h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 5%;
+  min-height: 70vh;
+  gap: 2rem;
+  background: #e8f8ff;
+}
+
+.hero .text {
+  max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: #1e40af;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-box input,
+.search-box select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  background-color: #fca311;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.image img {
+    width: 900px;
+    max-width: 100%;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+
+/* ========== Responsive Breakpoints ========== */
+
+/* Tablet (≤ 768px) */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero .text {
+    max-width: 100%;
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box input,
+  .search-box select,
+  .search-box button {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .logo h1, .logo h2 {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+}
