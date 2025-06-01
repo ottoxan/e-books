@@ -1,16 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-
 header {
   display: flex;
   align-items: center;
   padding: 1rem 5%;
-  background-color: #e8f8ff;
+  background-color: #ffffff;
 }
 
 .logo {
@@ -38,34 +30,190 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 5%;
+  padding: 5rem 10%;
   min-height: 70vh;
   gap: 2rem;
-  background: #e8f8ff;
-}
+  background: linear-gradient(135deg, #222831 0%, #393E46 100%);}
 
 .hero .text {
   max-width: 50%;
 }
 
 .hero h1 {
-    font-size: 40px;
-    color: #1e40af;
-    margin-bottom: 10px;
+  font-size: 70px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 15px;
-    color: #333;
-    margin-bottom: 25px;
+  font-size: 25px;
+  color: #00ADB5;
+  margin-bottom: 25px;
+}
+
+.hero-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300adb5' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-blob {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.1;
+  filter: blur(40px);
+}
+
+.hero-blob-1 {
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: #00ADB5;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blob-animation 15s infinite alternate;
+}
+
+.hero-blob-2 {
+  bottom: -20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: #00ADB5;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blob-animation 20s infinite alternate-reverse;
+}
+
+@keyframes blob-animation {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 173, 181, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(0, 173, 181, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 173, 181, 0);
+  }
+}
+
+.typing-animation {
+  border-right: 2px solid #00ADB5;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #00ADB5
+  }
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+
+  60% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+}
+
+.hero-3d-element {
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+  transition: transform 0.3s ease;
+}
+
+.hero-3d-element:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-particle {
+  position: absolute;
+  background-color: rgba(0, 173, 181, 0.3);
+  border-radius: 50%;
 }
 
 .search-box {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  
 }
 
+.search-box input{
+  width: 350px;
+}
 .search-box input,
 .search-box select {
   padding: 10px;
@@ -76,7 +224,7 @@ header {
 
 .search-box button {
   padding: 10px 20px;
-  background-color: #fca311;
+  background-color: #00ADB5;
   color: white;
   border: none;
   border-radius: 5px;
@@ -84,8 +232,8 @@ header {
 }
 
 .image img {
-    width: 900px;
-    max-width: 100%;
+  width: 900px;
+  max-width: 100%;
 }
 
 footer {
@@ -143,7 +291,8 @@ footer {
     gap: 10px;
   }
 
-  .logo h1, .logo h2 {
+  .logo h1,
+  .logo h2 {
     font-size: 14px;
   }
 

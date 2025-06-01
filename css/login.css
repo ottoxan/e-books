@@ -7,12 +7,10 @@ body {
 }
 
 .login-div {
-    margin: 100px auto;
-    width: 350px;
+    width: 450px;
     background-color: black;
     padding: 60px;
     border-radius: 60px;
-    margin-top: 150px;
 }
 
 .logo {

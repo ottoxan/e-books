@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 
 <body>
@@ -21,7 +22,12 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="#">Logo</a>
+                <div class="Clogo d-flex justify-content-center align-items-center me-3">
+                    <svg class=" logoSvg h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <a class="navbar-brand me-auto" href="#">Ebooks</a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
@@ -34,14 +40,29 @@
                             <li class="nav-item"><a class="nav-link" href="#about"><?= __('About') ?></a></li>
                             <li class="nav-item"><a class="nav-link" href="#contact"><?= __('Contact') ?></a></li>
                         </ul>
+
+                        <div class="d-none d-md-block me-3">
+                            <div class="position-relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-info" viewBox="0 0 16 16">
+                                    <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018" />
+                                    <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11" />
+                                </svg>
+                                <input class="input-box form-control ps-5 pe-4 py-2 rounded-pill border border-info" type="text" id="searchInput" value="<?php echo isset($search) ? htmlspecialchars($search) : ''; ?>" placeholder="Cari buku disini"
+                                    onkeydown="if(event.key === 'Enter'){ event.preventDefault(); redirectToSearch(); }" />
+
+                            </div>
+                        </div>
                         <!-- Language Dropdown -->
-                        <form class="d-flex mx-1" role="search">
+                        <!-- Language Dropdown with Bootstrap Icons -->
+                        <form class="d-flex me-3" role="search">
                             <select class="form-select" id="languageSelect" onchange="changeLanguage(this.value)">
                                 <option value="en">English</option>
-                                <option value="id">Bahasa Indonesia</option>
-                                <option value="th">Thailand</option>
+                                <option value="id">Indonesia</option>
+                                <option value="th">ไทย</option>
                             </select>
                         </form>
+
+
 
                     </div>
                 </div>
@@ -52,5 +73,3 @@
             </div>
         </nav>
         <!-- End Navbar -->
-
-        <?php include "banner.php" ?>

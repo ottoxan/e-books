@@ -7,6 +7,7 @@ $resultStages = $mysqli->query($sqlStages);
 ?>
 
 <?php include "partials/header.php" ?>
+<?php include "banner.php" ?>
 
 
 <!-- Section -->

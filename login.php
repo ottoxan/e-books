@@ -33,27 +33,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
-<main class="login-div d-flex justify-content-center align-items-center flex-column">
-    <div class="title">Ebooks</div>
-    <div class="sub-title">Login</div>
+<main class="h-100 d-flex justify-content-center align-items-center">
+    <div class="login-div d-flex justify-content-center align-items-center flex-column">
+        <div class="title">Ebooks</div>
+        <div class="sub-title">Login</div>
 
-    <?php if ($is_invalid): ?>
-        <em class="text-danger"> Invalid Login</em>
-    <?php endif; ?>
+        <?php if ($is_invalid): ?>
+            <em class="text-danger"> Invalid Login</em>
+        <?php endif; ?>
 
-    <form method="POST" class="form">
+        <form method="POST" class="form">
 
-        <div class="username">
-            <input placeholder="Email" class="text-white" type="text" id="email" name="email" value="<?php htmlspecialchars($_POST["email"] ?? "") ?>" required>
-        </div>
+            <div class="username">
+                <input placeholder="Email" class="text-white" type="text" id="email" name="email" value="<?php htmlspecialchars($_POST["email"] ?? "") ?>" required>
+            </div>
 
-        <div class="password">
-            <input type="password" id="password" name="password" placeholder="Password" class="text-white">
-        </div>
-        <div class="d-flex justify-content-center">
-            <button class="signin-btn">LOGIN</button>
-        </div>
-    </form>
+            <div class="password">
+                <input type="password" id="password" name="password" placeholder="Password" class="text-white">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="signin-btn">LOGIN</button>
+            </div>
+        </form>
+
+    </div>
 </main>
 
 <?php include "partials/footer.php" ?>
