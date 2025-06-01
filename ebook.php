@@ -69,20 +69,20 @@ while ($row = $resultEbook->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="container text-start">
-                                <div class="row">
-                                    <div class="col ps-0">
+                                <div class="book-details row">
+                                    <div class="col details ps-0">
                                         <p><?= __('Subject') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['subject']); ?></span></p>
 
                                     </div>
-                                    <div class="col">
+                                    <div class="col details">
                                         <p><?= __('Academic Stage') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['academic_stage']); ?></span></p>
 
                                     </div>
-                                    <div class="col">
+                                    <div class="col details">
                                         <p><?= __('Grade') ?>: <br><span class="text-muted"><?php echo htmlspecialchars($ebook['grade']); ?></span></p>
 
                                     </div>
-                                    <div class="col">
+                                    <div class="col details">
                                         <p><?= __('Semester') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['semester_number']); ?></span></p>
 
                                     </div>

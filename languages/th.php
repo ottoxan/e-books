@@ -11,4 +11,11 @@ $lang = [
     'No ebooks available for this subject.' => 'ไม่มีอีบุ๊คสำหรับวิชานี้',
     'View PDF' => 'ดู PDF',
     'Book Name' => 'ชื่อหนังสือ',
+    'Search a Book' => 'ค้นหาหนังสือ',
+    'Books For Everyone' => 'หนังสือสำหรับทุกคน',
+    'Access it from anywhere, anytime. Let\'s read eBooks!' => 'เข้าถึงได้จากทุกที่ ทุกเวลา มาอ่านอีบุ๊คกันเถอะ!',
+    'Search' => 'ค้นหา',
+    'Other books' => 'หนังสืออื่นๆ',
+    'No ebooks available.' => 'ไม่มีอีบุ๊คที่พร้อมใช้งาน',
+    'Book Search' => 'ค้นหาหนังสือ',
 ];

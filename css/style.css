@@ -24,7 +24,6 @@ body {
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 .navbar {
@@ -87,9 +86,12 @@ body {
     font-size: 1.25rem;
 }
 
+.navbar-toggler-icon {
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 li a {
     position: relative;
-    color: white !important;
     font-weight: 500 !important;
     text-decoration: none;
     padding: 0.5rem 1rem !important;
@@ -122,7 +124,7 @@ li a:hover::before {
 }
 
 .nav-link {
-    color: red;
+    color: black;
     font-weight: 500;
     position: relative;
 }
@@ -151,14 +153,18 @@ li a:hover::before {
     color: #00ADB5;
 }
 
-.container-fluid {
-    margin: 0 10% !important;
+.search {
+    margin-top: 1rem;
+}
+
+.lang {
+    margin-top: 1rem;
 }
 
 
 
 section {
-    padding: 10rem 15%;
+    padding: 10rem 5%;
     width: 100%;
     position: relative;
 }
@@ -212,7 +218,7 @@ section {
 }
 
 .ebook-card {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: left;
     background-color: #E5F8FF;
     padding: 3rem 2rem;
@@ -227,7 +233,6 @@ section {
 }
 
 
-.pdf-button {}
 
 .card-content {
     height: 100%;
@@ -269,6 +274,14 @@ section {
 .book-image {
     width: 100%;
     height: auto;
+}
+
+.book-details {
+    flex-direction: column;
+}
+
+.col.details {
+    padding-left: 0;
 }
 
 .badge {
@@ -316,16 +329,21 @@ footer .copyright {
         gap: 10px;
     }
 
-    .card-image {
-        height: 150px;
-    }
-
     footer {
         padding: 15px 5px;
     }
 }
 
 @media (min-width: 991px) {
+    section {
+        padding: 10rem 15%;
+
+    }
+
+    li a {
+        color: white !important;
+    }
+
     .nav-link::before {
         content: "";
         position: absolute;
@@ -340,6 +358,26 @@ footer .copyright {
     .nav-link.active::before {
         width: 100%;
         background-color: #00ADB5;
+    }
+
+    .container-fluid {
+        margin: 0 10% !important;
+    }
+
+    .search {
+        margin-top: 0 !important;
+    }
+
+    .lang {
+        margin-top: 0 !important;
+    }
+
+    .ebook-card {
+        flex-direction: row;
+    }
+
+    .book-details {
+        flex-direction: row;
     }
 }
 

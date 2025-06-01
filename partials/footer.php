@@ -9,11 +9,18 @@
 
 </div> <!-- Tutup wrapper -->
 <script>
-    // Set language on dropdown from localStorage
+    // Set language on dropdown from localStorage or URL, always reload if URL param is present
     document.addEventListener('DOMContentLoaded', function() {
-        const lang = localStorage.getItem('lang') || 'en';
-        document.getElementById('languageSelect').value = lang;
-        setLangParam(lang, false);
+        const urlParams = new URLSearchParams(window.location.search);
+        let lang = urlParams.get('lang');
+        if (lang) {
+            localStorage.setItem('lang', lang);
+            document.getElementById('languageSelect').value = lang;
+        } else {
+            lang = localStorage.getItem('lang') || 'en';
+            document.getElementById('languageSelect').value = lang;
+            setLangParam(lang, true); // Always reload to set URL param
+        }
     });
 
     function changeLanguage(lang) {
@@ -21,8 +28,8 @@
         setLangParam(lang, true);
     }
 
-    // Update the URL parameter for language and optionally reload
-    function setLangParam(lang, reload = false) {
+    // Update the URL parameter for language and reload
+    function setLangParam(lang, reload = true) {
         const url = new URL(window.location);
         url.searchParams.set('lang', lang);
         if (reload) {
@@ -36,7 +43,7 @@
     function redirectToSearch() {
         var query = document.getElementById('searchInput').value;
         if (query.trim() !== "") {
-            window.location.href = 'http://localhost/bookSearch.php?q=' + encodeURIComponent(query);
+            window.location.href = 'bookSearch.php?q=' + encodeURIComponent(query);
         }
     }
 </script>

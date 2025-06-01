@@ -7,11 +7,11 @@ $resultStages = $mysqli->query($sqlStages);
 ?>
 
 <?php include "partials/header.php" ?>
-<?php include "banner.php" ?>
 
 
 <!-- Section -->
 <main class="content">
+    <?php include "banner.php" ?>
     <section class="hero-section">
         <h2 class="section-title"><?= __('Academic Stage') ?></h2>
         <div class="projects-grid">

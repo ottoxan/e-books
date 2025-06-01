@@ -55,37 +55,38 @@ while ($row = $resultEbook->fetch_assoc()) {
 ?>
 
 <?php include "partials/header.php" ?>
+<main class="content h-100">
+    <section class="hero-section d-flex flex-column">
+        <h1 class="pb-3"><?= __('Book Search') ?></h1>
+        <form class="mb-4" method="get" action="">
+            <div class="input-group" style="max-width:400px;">
+                <input type="text" class="form-control" name="q" placeholder="<?= __('Search book title...') ?>" value="<?php echo htmlspecialchars($search); ?>">
+                <button class="btn btn-primary" type="submit"><?= __('Search') ?></button>
+            </div>
+        </form>
 
-
-<section class="d-flex flex-column">
-    <h1 class="pb-3">Book Search</h1>
-    <form class="mb-4" method="get" action="">
-        <div class="input-group" style="max-width:400px;">
-            <input type="text" class="form-control" name="q" placeholder="Search book title..." value="<?php echo htmlspecialchars($search); ?>">
-            <button class="btn btn-primary" type="submit"><?= __('Search') ?></button>
-        </div>
-    </form>
-
-    <div class="d-flex flex-wrap">
-        <?php if (!empty($ebooks)): ?>
-            <?php foreach ($ebooks as $ebook): ?>
-                <div class="card book-card m-lg-5" onclick="location.href='ebook.php?id=<?php echo $ebook['id']; ?>'">
-                    <img src="uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>" class="book-image">
-                    <div class="card-body">
-                        <div class="mb-2">
-                            <span class="badge bg-danger">PDF</span>
-                            <span class="badge bg-primary"><?php echo htmlspecialchars($ebook['grade']); ?></span>
-                            <span class="badge bg-primary"><?php echo htmlspecialchars($ebook['semester_number']); ?></span>
+        <div class="d-flex flex-wrap">
+            <?php if (!empty($ebooks)): ?>
+                <?php foreach ($ebooks as $ebook): ?>
+                    <div class="card book-card m-lg-5" onclick="location.href='ebook.php?id=<?php echo $ebook['id']; ?>'">
+                        <img src="uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>" class="book-image">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge bg-danger">PDF</span>
+                                <span class="badge bg-primary"><?php echo htmlspecialchars($ebook['grade']); ?></span>
+                                <span class="badge bg-primary"><?php echo htmlspecialchars($ebook['semester_number']); ?></span>
+                            </div>
+                            <h5 class="card-title"><?php echo htmlspecialchars($ebook["book_title"]); ?></h5>
+                            <p class="card-text"><?php echo htmlspecialchars($ebook['academic_stage']); ?></p>
                         </div>
-                        <h5 class="card-title"><?php echo htmlspecialchars($ebook["book_title"]); ?></h5>
-                        <p class="card-text"><?php echo htmlspecialchars($ebook['academic_stage']); ?></p>
                     </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p><?= __('No ebooks available.') ?></p>
-        <?php endif; ?>
-    </div>
-</section>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p><?= __('No ebooks available.') ?></p>
+            <?php endif; ?>
+        </div>
+    </section>
+
+</main>
 
 <?php include "partials/footer.php" ?>

@@ -19,7 +19,7 @@ $sqlEbook = "SELECT
         LEFT JOIN grade ON ebooks.grade_id = grade.id
         LEFT JOIN semester ON ebooks.semester_id = semester.id
         LEFT JOIN subject ON ebooks.subject_id = subject.id";
-        
+
 $stmt = $mysqli->prepare($sqlEbook);
 $stmt->execute();
 $resultEbook = $stmt->get_result();
@@ -39,10 +39,10 @@ while ($row = $resultEbook->fetch_assoc()) {
 
 <section class="d-flex py-0 flex-column">
     <h1 class="pb-3">
-        Buku lainnya
+        <?= __('Other books') ?>
     </h1>
 
-    <div class="d-flex flex-wrap justify-content-space-evenly">
+    <div class="d-flex flex-wrap justify-content-center">
         <?php if (!empty($ebooks)): ?>
             <?php foreach ($ebooks as $ebook): ?>
                 <div class="card book-card" onclick="location.href='ebook.php?id=<?php echo $ebook['id']; ?>'">
