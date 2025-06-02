@@ -33,13 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
-<main class="h-100 d-flex justify-content-center align-items-center">
+<main class="d-flex justify-content-center align-items-center " style="
+    height: 100vh;
+">
     <div class="login-div d-flex justify-content-center align-items-center flex-column">
         <div class="title">Ebooks</div>
         <div class="sub-title">Login</div>
 
         <?php if ($is_invalid): ?>
-            <em class="text-danger"> Invalid Login</em>
+            <em class="text-danger "> Invalid Login</em>
         <?php endif; ?>
 
         <form method="POST" class="form">
