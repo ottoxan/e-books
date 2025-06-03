@@ -61,7 +61,6 @@ body {
 	z-index: 2000;
 	font-family: var(--lato);
 	transition: .3s ease;
-	overflow-x: hidden;
 	scrollbar-width: none;
 }
 
@@ -87,6 +86,7 @@ body {
 	z-index: 500;
 	padding-bottom: 20px;
 	box-sizing: content-box;
+	overflow-x: hidden;
 }
 
 #sidebar .brand .bx {
@@ -581,7 +581,7 @@ body {
 	margin-bottom: 0;
 }
 
-.form-label{
+.form-label {
 	color: var(--dark);
 }
 
@@ -609,7 +609,17 @@ body {
 
 	#content nav .nav-link {
 		display: none;
+
 	}
+
+	#content nav {
+		padding: 0;
+		justify-content: space-around;
+
+	}
+
+
+
 }
 
 
@@ -653,14 +663,14 @@ body {
 	}
 
 	#content main .table-data .head {
-		min-width: 420px;
+		min-width: 1000px;
 	}
 
 	#content main .table-data .order table {
-		min-width: 420px;
+		min-width: 1000px;
 	}
 
 	#content main .table-data .todo .todo-list {
-		min-width: 420px;
+		min-width: 1000px;
 	}
 }

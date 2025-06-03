@@ -13,15 +13,20 @@ $resultStages = $mysqli->query($sqlStages);
 <main class="content">
     <?php include "banner.php" ?>
     <section class="hero-section">
-        <h2 class="section-title"><?= __('Academic Stage') ?></h2>
-        <div class="projects-grid">
-            <?php while ($row = $resultStages->fetch_assoc()): ?>
-                <div class="project-card" onclick="location.href='grade.php?id=<?php echo $row['id']; ?>'">
-                    <img src="assets/<?php echo htmlspecialchars($row["academic_stage"]); ?>.png" class="card-image" alt="">
-                    <h3><?php echo htmlspecialchars($row["academic_stage"]); ?></h3>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><?= __('Academic Stage') ?></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reiciendis.</p>
+            </div>
+            <div class="projects-grid">
+                <?php while ($row = $resultStages->fetch_assoc()): ?>
+                    <div class="project-card" onclick="location.href='grade.php?id=<?php echo $row['id']; ?>'">
+                        <img src="assets/<?php echo htmlspecialchars($row["academic_stage"]); ?>.png" class="card-image" alt="">
+                        <h3><?php echo htmlspecialchars($row["academic_stage"]); ?></h3>
 
-                </div>
-            <?php endwhile; ?>
+                    </div>
+                <?php endwhile; ?>
+            </div>
         </div>
     </section>
     <?php include "allebooks.php" ?>

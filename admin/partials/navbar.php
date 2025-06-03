@@ -2,7 +2,7 @@
             <nav>
                 <div>
                     <i class='bx bx-menu'></i>
-                    <button type="button" class="btn btn-primary px-3 mx-3" onclick="window.open('../index.php')">
+                    <button type="button" class="btn btn-sm btn-primary px-3 mx-3" onclick="window.open('../index.php')">
                         Open Ebook
                     </button>
                 </div>

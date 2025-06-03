@@ -1,3 +1,10 @@
+:root {
+    --color-dark: #222831;
+    --color-gray: #393E46;
+    --color-cyan: #00ADB5;
+    --color-light: #EEEEEE;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +20,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    color: var(--color-dark);
 }
 
 body {
@@ -24,6 +32,10 @@ body {
 .wrapper {
     display: flex;
     flex-direction: column;
+}
+
+section {
+    background: linear-gradient(to bottom, var(--color-light), white);
 }
 
 .navbar {
@@ -153,6 +165,10 @@ li a:hover::before {
     color: #00ADB5;
 }
 
+.sealang {
+    flex-direction: column;
+}
+
 .search {
     margin-top: 1rem;
 }
@@ -164,7 +180,7 @@ li a:hover::before {
 
 
 section {
-    padding: 10rem 5%;
+    padding: 5rem 1rem;
     width: 100%;
     position: relative;
 }
@@ -201,7 +217,7 @@ section {
 }
 
 .project-card:hover {
-    background-color: black;
+    background: linear-gradient(to right, var(--color-gray), var(--color-dark));
     color: white;
     transform: translateY(-10px) scale(1.02);
 }
@@ -263,12 +279,20 @@ section {
     transform: scale(1.05);
 }
 
+.book-card:hover {
+    border-color: rgba(0, 173, 181, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
 .book-card {
+    cursor: pointer;
     max-width: 250px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 2rem !important;
+    transition: ease-in-out 0.5s;
 }
 
 .book-image {
@@ -335,10 +359,6 @@ footer .copyright {
 }
 
 @media (min-width: 991px) {
-    section {
-        padding: 10rem 15%;
-
-    }
 
     li a {
         color: white !important;
@@ -362,6 +382,10 @@ footer .copyright {
 
     .container-fluid {
         margin: 0 10% !important;
+    }
+
+    .sealang {
+        flex-direction: row;
     }
 
     .search {

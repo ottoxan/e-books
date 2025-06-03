@@ -6,20 +6,6 @@
     --color-light: #EEEEEE;
 }
 
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: var(--color-dark);
-    background: linear-gradient(to bottom, var(--color-light), white);
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -78,8 +64,15 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .hero-content {
@@ -106,6 +99,8 @@ body {
     filter: blur(20px);
     opacity: 0.3;
     animation: pulse 2s infinite;
+    width: 98px;
+    left: 40.5%;
 }
 
 .icon-container {
@@ -123,8 +118,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 .hero-title {
@@ -134,13 +136,13 @@ body {
     letter-spacing: -0.02em;
 }
 
-.highlight {
+.highlight-contact {
     color: var(--color-cyan);
     display: block;
 }
 
 @media (min-width: 768px) {
-    .highlight {
+    .highlight-contact {
         display: inline;
         margin-left: 1rem;
     }
@@ -539,8 +541,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Responsive Design */
@@ -548,11 +555,11 @@ body {
     .container {
         padding: 0 0.5rem;
     }
-    
+
     .contact-form {
         padding: 1.5rem;
     }
-    
+
     .form-section,
     .info-section {
         padding: 3rem 1rem;
