@@ -17,23 +17,23 @@
      </div>
 
      <h1 class="hero-title">
-       Tentang
-       <span class="highlight">Kami</span>
+       <?= __('About') ?>
+       <span class="highlight"><?= __('Us') ?></span>
      </h1>
 
      <p class="hero-subtitle">
-       Kami adalah tim kreatif yang berdedikasi untuk menghadirkan solusi digital terbaik dan inovatif untuk bisnis Anda.
+       <?= __('We are a creative team dedicated to delivering the best and most innovative digital solutions for your business.') ?>
      </p>
 
      <div class="hero-features">
        <div class="feature">
          <i class="fas fa-rocket"></i>
-         <span>Inovasi terdepan</span>
+         <span><?= __('Innovative Solutions') ?></span>
        </div>
        <div class="divider"></div>
        <div class="feature">
          <i class="fas fa-heart"></i>
-         <span>Passion untuk excellence</span>
+         <span><?= __('Passion for Excellence') ?></span>
        </div>
      </div>
    </div>
@@ -44,28 +44,24 @@
    <div class="container">
      <div class="story-card">
        <div class="story-header">
-         <h2>Cerita Kami</h2>
-         <p>Perjalanan menuju kesuksesan bersama</p>
+         <h2><?= __('Our Story') ?></h2>
+         <p><?= __('Our Journey to Success Together') ?></p>
        </div>
 
        <div class="story-content">
          <div class="story-text">
-           <h3>Memulai dengan Mimpi Besar</h3>
+           <h3><?= __('Starting with Big Dreams') ?></h3>
            <p>
-             Didirikan pada tahun 2020, perusahaan kami berawal dari mimpi sederhana untuk
-             menciptakan solusi digital yang dapat mengubah cara bisnis beroperasi. Dengan
-             tim yang terdiri dari para profesional berpengalaman, kami berkomitmen untuk
-             memberikan layanan terbaik kepada setiap klien.
+             <?= __('Founded in 2025, our company started with a simple dream to create digital solutions that can transform the way businesses operate. With a team of experienced professionals, we are committed to providing the best service to every client.') ?>
+
            </p>
 
-           <h3>Visi & Misi</h3>
+           <h3><?= __('Vision & Mission') ?></h3>
            <p>
-             <strong>Visi:</strong> Menjadi partner terpercaya dalam transformasi digital
-             untuk menciptakan masa depan yang lebih baik.
+             <strong><?= __('Our Vision') ?>: </strong><?= __('Our vision is to be a trusted partner in digital transformation, creating a better future.') ?>
            </p>
            <p>
-             <strong>Misi:</strong> Memberikan solusi teknologi inovatif yang membantu
-             bisnis berkembang dan mencapai potensi maksimalnya.
+             <strong><?= __('Our Mission') ?>: </strong><?= __('We strive to be a leader in the digital solutions industry, continuously pushing the boundaries of what is possible.') ?>
            </p>
          </div>
        </div>
@@ -73,19 +69,19 @@
        <div class="achievements">
          <div class="achievement-item">
            <div class="achievement-number">50+</div>
-           <div class="achievement-label">Proyek Selesai</div>
+           <div class="achievement-label"><?= __('Finised Projects') ?></div>
          </div>
          <div class="achievement-item">
            <div class="achievement-number">30+</div>
-           <div class="achievement-label">Klien Puas</div>
+           <div class="achievement-label"><?= __('Satisfied Clients') ?></div>
          </div>
          <div class="achievement-item">
            <div class="achievement-number">4</div>
-           <div class="achievement-label">Tahun Pengalaman</div>
+           <div class="achievement-label"><?= __('Years of Experience') ?></div>
          </div>
          <div class="achievement-item">
            <div class="achievement-number">24/7</div>
-           <div class="achievement-label">Support</div>
+           <div class="achievement-label"><?= __('Support') ?></div>
          </div>
        </div>
      </div>
@@ -96,8 +92,8 @@
  <section class="values-section">
    <div class="container">
      <div class="section-header">
-       <h2>Nilai-Nilai Kami</h2>
-       <p>Prinsip yang memandu setiap langkah perjalanan kami</p>
+       <h2><?= __('Our Values') ?></h2>
+       <p><?= __('Principles that guide our work and relationships.') ?></p>
      </div>
 
      <div class="values-grid">
@@ -105,48 +101,48 @@
          <div class="value-icon">
            <i class="fas fa-lightbulb"></i>
          </div>
-         <h3>Inovasi</h3>
-         <p>Selalu mencari cara baru dan kreatif untuk menyelesaikan tantangan bisnis dengan solusi teknologi terdepan.</p>
+         <h3><?= __('Inovation') ?></h3>
+         <p><?= __('We believe in continuous innovation to provide the best solutions.') ?></p>
        </div>
 
        <div class="value-card">
          <div class="value-icon">
            <i class="fas fa-handshake"></i>
          </div>
-         <h3>Integritas</h3>
-         <p>Membangun kepercayaan melalui transparansi, kejujuran, dan komitmen terhadap kualitas dalam setiap proyek.</p>
+         <h3><?= __('Integrity') ?></h3>
+         <p><?= __('We uphold integrity in every action and decision.') ?></p>
        </div>
 
        <div class="value-card">
          <div class="value-icon">
            <i class="fas fa-users"></i>
          </div>
-         <h3>Kolaborasi</h3>
-         <p>Bekerja sama dengan klien sebagai partner untuk mencapai tujuan bersama dan kesuksesan jangka panjang.</p>
+         <h3><?= __('Collaboration') ?></h3>
+         <p><?= __('We work together to achieve common goals.') ?></p>
        </div>
 
        <div class="value-card">
          <div class="value-icon">
            <i class="fas fa-target"></i>
          </div>
-         <h3>Excellence</h3>
-         <p>Berkomitmen untuk memberikan hasil terbaik dengan standar kualitas tinggi dalam setiap aspek pekerjaan.</p>
+         <h3><?= __('Excellence') ?></h3>
+         <p><?= __('We strive for excellence in everything we do.') ?></p>
        </div>
 
        <div class="value-card">
          <div class="value-icon">
            <i class="fas fa-clock"></i>
          </div>
-         <h3>Efisiensi</h3>
-         <p>Mengoptimalkan proses dan waktu untuk memberikan solusi tepat sasaran dengan hasil maksimal.</p>
+         <h3><?= __('Efficiency') ?></h3>
+         <p><?= __('We focus on efficiency to maximize results.') ?></p>
        </div>
 
        <div class="value-card">
          <div class="value-icon">
            <i class="fas fa-shield-alt"></i>
          </div>
-         <h3>Keamanan</h3>
-         <p>Mengutamakan keamanan data dan privasi klien dengan menggunakan teknologi dan praktik terbaik.</p>
+         <h3><?= __('Security') ?></h3>
+         <p><?= __('We prioritize the security and privacy of our clients.') ?></p>
        </div>
      </div>
    </div>
@@ -156,8 +152,8 @@
  <section class="team-section">
    <div class="container">
      <div class="section-header">
-       <h2>Tim Kami</h2>
-       <p>Profesional berpengalaman yang siap mewujudkan visi Anda</p>
+       <h2><?= __('Our Team') ?></h2>
+       <p><?= __('Meet the talented individuals behind our success.') ?></p>
      </div>
 
      <div class="team-grid">
@@ -169,7 +165,7 @@
          </div>
          <h3>Usman Bin Affan</h3>
          <p class="role">CEO & Founder</p>
-         <p class="description">Visioner dengan pengalaman 10+ tahun dalam industri teknologi</p>
+         <p class="description"><?= __('Visioner with a passion for technology and innovation.') ?></p>
        </div>
 
        <div class="team-card">
@@ -180,7 +176,7 @@
          </div>
          <h3>Hilmi Yahya</h3>
          <p class="role">CTO</p>
-         <p class="description">Expert dalam pengembangan aplikasi dan arsitektur sistem</p>
+         <p class="description"><?= __('Expert in Website development') ?></p>
        </div>
 
        <div class="team-card">
@@ -191,7 +187,7 @@
          </div>
          <h3>Rahma</h3>
          <p class="role">Lead Designer</p>
-         <p class="description">Spesialis UI/UX dengan passion untuk desain yang user-friendly</p>
+         <p class="description"><?= __('Specialist in UI/UX with passion and user friendly designs') ?></p>
        </div>
 
        <div class="team-card">
@@ -202,7 +198,7 @@
          </div>
          <h3>Badriyah</h3>
          <p class="role">Project Manager</p>
-         <p class="description">Mengkoordinasi proyek dengan efisien dan memastikan delivery tepat waktu</p>
+         <p class="description"><?= __('Project coordinator with efficiency and effectiveness') ?></p>
        </div>
      </div>
    </div>
