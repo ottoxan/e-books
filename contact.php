@@ -16,23 +16,24 @@
     </div>
 
     <h1 class="hero-title">
-      Hubungi
-      <span class="highlight-contact">Kami</span>
+      <?= __('Contact') ?>
+      <span class="highlight-contact"><?= __('Us') ?> </span>
     </h1>
 
     <p class="hero-subtitle">
-      Siap untuk berkolaborasi? Mari wujudkan ide Anda menjadi kenyataan bersama tim kreatif kami.
+      <?= __('Ready to collaborate? Let\'s turn your ideas into reality with our creative team.') ?>
     </p>
 
     <div class="hero-features">
       <div class="feature">
         <i class="fas fa-comments"></i>
-        <span>Respons dalam 24 jam</span>
+        <span>
+          <?= __('Response In 24 Hours') ?></span>
       </div>
       <div class="divider"></div>
       <div class="feature">
         <i class="fas fa-envelope"></i>
-        <span>Konsultasi gratis</span>
+        <span><?= __('Free Consultation') ?></span>
       </div>
     </div>
   </div>
@@ -43,45 +44,45 @@
   <div class="container">
     <div class="contact-form-card">
       <div class="form-header">
-        <h2>Kirim Pesan</h2>
-        <p>Ceritakan proyek impian Anda kepada kami</p>
+        <h2><?= __('Send Us a Message') ?></h2>
+        <p><?= __('Tell us about your dream project') ?></p>
       </div>
 
       <form class="contact-form" id="contactForm">
         <div class="form-row">
           <div class="form-group">
-            <label for="firstName">Nama Depan *</label>
-            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+            <label for="firstName"><?= __('First Name *') ?></label>
+            <input type="text" id="firstName" name="firstName" placeholder="<?= __('John') ?>" required>
           </div>
           <div class="form-group">
-            <label for="lastName">Nama Belakang *</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+            <label for="lastName"><?= __('Last Name *') ?></label>
+            <input type="text" id="lastName" name="lastName" placeholder="<?= __('Doe') ?>" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          <label for="email"><?= __('Email *') ?></label>
+          <input type="email" id="email" name="email" placeholder="<?= __('john@example.com') ?>" required>
         </div>
 
         <div class="form-group">
-          <label for="phone">Nomor Telepon</label>
-          <input type="tel" id="phone" name="phone" placeholder="+62 812-3456-7890">
+          <label for="phone"><?= __('Phone Number') ?></label>
+          <input type="tel" id="phone" name="phone" placeholder="<?= __('+62 812-3456-7890') ?>">
         </div>
 
         <div class="form-group">
-          <label for="subject">Subjek *</label>
-          <input type="text" id="subject" name="subject" placeholder="Tentang proyek website saya" required>
+          <label for="subject"><?= __('Subject *') ?></label>
+          <input type="text" id="subject" name="subject" placeholder="<?= __('About my website project') ?>" required>
         </div>
 
         <div class="form-group">
-          <label for="message">Pesan *</label>
-          <textarea id="message" name="message" rows="6" placeholder="Ceritakan lebih detail tentang proyek atau kebutuhan Anda..." required></textarea>
+          <label for="message"><?= __('Message *') ?></label>
+          <textarea id="message" name="message" rows="6" placeholder="<?= __('Tell us more about your project or needs...') ?>" required></textarea>
         </div>
 
         <button type="submit" class="submit-btn">
           <i class="fas fa-paper-plane"></i>
-          <span>Kirim Pesan</span>
+          <span><?= __('Send Message') ?></span>
         </button>
       </form>
 
@@ -89,8 +90,8 @@
         <div class="success-icon">
           <i class="fas fa-check-circle"></i>
         </div>
-        <h3>Pesan Berhasil Dikirim!</h3>
-        <p>Tim kami akan menghubungi Anda dalam waktu 24 jam.</p>
+        <h3><?= __('Message Sent Successfully!') ?></h3>
+        <p><?= __('Our team will contact you within 24 hours.') ?></p>
       </div>
     </div>
   </div>
@@ -100,8 +101,8 @@
 <section class="info-section">
   <div class="container">
     <div class="section-header">
-      <h2>Informasi Kontak</h2>
-      <p>Berbagai cara untuk terhubung dengan kami</p>
+      <h2><?= __('Contact Information') ?></h2>
+      <p><?= __('Various ways to connect with us') ?></p>
     </div>
 
     <div class="info-grid">
@@ -109,48 +110,48 @@
         <div class="info-icon">
           <i class="fas fa-map-marker-alt"></i>
         </div>
-        <h3>Alamat Kantor</h3>
-        <p>Jl. Sudirman No. 123<br>Jakarta Pusat, 10220<br>Indonesia</p>
+        <h3><?= __('Office Address') ?></h3>
+        <p><?= __('Jl. Sudirman No. 123') ?><br><?= __('Central Jakarta, 10220') ?><br><?= __('Indonesia') ?></p>
       </div>
 
       <div class="info-card">
         <div class="info-icon">
           <i class="fas fa-phone"></i>
         </div>
-        <h3>Telepon</h3>
-        <p>+62 21 1234 5678<br>+62 812 3456 7890</p>
+        <h3><?= __('Phone') ?></h3>
+        <p><?= __('+62 21 1234 5678') ?><br><?= __('+62 812 3456 7890') ?></p>
       </div>
 
       <div class="info-card">
         <div class="info-icon">
           <i class="fas fa-envelope"></i>
         </div>
-        <h3>Email</h3>
-        <p>hello@company.com<br>support@company.com</p>
+        <h3><?= __('Email') ?></h3>
+        <p><?= __('hello@company.com') ?><br><?= __('support@company.com') ?></p>
       </div>
 
       <div class="info-card">
         <div class="info-icon">
           <i class="fas fa-clock"></i>
         </div>
-        <h3>Jam Operasional</h3>
-        <p>Senin - Jumat: 09:00 - 18:00<br>Sabtu: 09:00 - 15:00<br>Minggu: Tutup</p>
+        <h3><?= __('Operating Hours') ?></h3>
+        <p><?= __('Monday - Friday: 09:00 - 18:00') ?><br><?= __('Saturday: 09:00 - 15:00') ?><br><?= __('Sunday: Closed') ?></p>
       </div>
 
       <div class="info-card">
         <div class="info-icon">
           <i class="fas fa-globe"></i>
         </div>
-        <h3>Website</h3>
-        <p>www.company.com<br>www.portfolio.com</p>
+        <h3><?= __('Website') ?></h3>
+        <p><?= __('www.company.com') ?><br><?= __('www.portfolio.com') ?></p>
       </div>
 
       <div class="info-card">
         <div class="info-icon">
           <i class="fas fa-comment"></i>
         </div>
-        <h3>Media Sosial</h3>
-        <p>@company_id<br>@companyofficial<br>LinkedIn: Company</p>
+        <h3><?= __('Social Media') ?></h3>
+        <p><?= __('@company_id') ?><br><?= __('@companyofficial') ?><br><?= __('LinkedIn: Company') ?></p>
       </div>
     </div>
 
@@ -158,8 +159,8 @@
     <div class="map-card">
       <div class="map-placeholder">
         <i class="fas fa-map-marker-alt"></i>
-        <h3>Lokasi Kantor Kami</h3>
-        <p>Klik untuk membuka Google Maps</p>
+        <h3><?= __('Our Office Location') ?></h3>
+        <p><?= __('Click to open Google Maps') ?></p>
       </div>
     </div>
   </div>
