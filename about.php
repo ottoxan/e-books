@@ -39,6 +39,47 @@
    </div>
  </section>
 
+
+ <section class="story-section">
+   <div class="container">
+     <div class="story-card">
+       <div class="story-header">
+         <h2><?= __('Ebooks') ?></h2>
+         <p><?= __('Digital books (ebooks)') ?></p>
+       </div>
+
+       <div class="story-content">
+         <div class="story-text">
+           <h3><?= __('what is ebooks') ?></h3>
+           <p>
+             <?= __('is an electronic version of a printed book that can be accessed through devices such as smartphones, tablets, laptops, or e-readers. Digital books offer the convenience of reading, carrying, and distributing content to all corners of the world instantly.
+
+With a flexible display, interactive features, and environmentally friendly, digital books are a modern choice for learning, sharing knowledge, and documenting the journey of an idea or business.') ?>
+         </div>
+       </div>
+
+       <div class="achievements">
+         <div class="achievement-item">
+           <div class="achievement-number">50+</div>
+           <div class="achievement-label"><?= __('Finised Projects') ?></div>
+         </div>
+         <div class="achievement-item">
+           <div class="achievement-number">30+</div>
+           <div class="achievement-label"><?= __('Satisfied Clients') ?></div>
+         </div>
+         <div class="achievement-item">
+           <div class="achievement-number">4</div>
+           <div class="achievement-label"><?= __('Years of Experience') ?></div>
+         </div>
+         <div class="achievement-item">
+           <div class="achievement-number">24/7</div>
+           <div class="achievement-label"><?= __('Support') ?></div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
  <!-- Company Story Section -->
  <section class="story-section">
    <div class="container">
