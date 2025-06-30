@@ -49,9 +49,9 @@ while ($row = $resultEbook->fetch_assoc()) {
     <div class="container">
         <div class="section-header">
             <h2 class="">
-                <?= __('Other books') ?>
+                <?= __(' All Books') ?>
             </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, sit.</p>
+            <p>A book is a medium of information containing writing or images, used to convey knowledge, stories, or ideas. Books can be in print or digital form, and play an important role in education, entertainment, and self-development.</p>
         </div>
 
         <div class="d-flex flex-wrap justify-content-center">
