@@ -360,8 +360,8 @@ footer .copyright {
 
 @media (min-width: 991px) {
 
-    li a {
-        color: white !important;
+    .nav-item a {
+        color: var(--color-light) !important;
     }
 
     .nav-link::before {
