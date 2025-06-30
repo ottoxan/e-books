@@ -17,9 +17,7 @@ if (isset($_SESSION["user_id"])) {
     <?php include 'partials/header.php' ?>
 
     <!-- MAIN -->
-    <main id="content-main">
-        <?php include "home.php" ?>
-    </main>
+    <?php include "dashboard-content.php" ?>
 
 
     <?php include 'partials/footer.php' ?>

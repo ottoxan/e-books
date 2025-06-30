@@ -341,6 +341,63 @@ body {
 
 
 /* MAIN */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.section-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.section-header h2 {
+	font-size: clamp(1.875rem, 4vw, 2.25rem);
+	font-weight: bold;
+	color: var(--color-dark);
+	margin-bottom: 1rem;
+}
+
+.section-header p {
+	color: var(--color-gray);
+	font-size: 1.125rem;
+}
+
+.book-card:hover {
+	border-color: rgba(0, 173, 181, 0.5);
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+}
+
+.book-card {
+	cursor: pointer;
+	max-width: 250px;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	margin: 2rem !important;
+	transition: ease-in-out 0.5s;
+}
+
+.book-image {
+	width: 100%;
+	height: auto;
+}
+
+.book-details {
+	flex-direction: column;
+}
+
+.col.details {
+	padding-left: 0;
+}
+
+.badge {
+	font-size: 0.75rem;
+	margin-right: 5px;
+}
+
 #content main {
 	width: 100%;
 	padding: 36px 24px;
@@ -397,11 +454,15 @@ body {
 	font-weight: 500;
 }
 
-
+.dashboard-content{
+	display: flex;
+	justify-content: space-between;
+}
 
 
 #content main .box-info {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	grid-gap: 24px;
 	margin-top: 36px;

@@ -119,12 +119,30 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
 
         if (empty($error_message)) {
-            // Update the database
-            $sql = "UPDATE ebooks SET academic_id = ?, grade_id = ?, semester_id = ?, subject_id = ?, book_title = ?, book_file_name = ?, file_cover = ? WHERE id = ?";
+            // Only update file fields if new files are uploaded
+            $updateFields = "academic_id = ?, grade_id = ?, semester_id = ?, subject_id = ?, book_title = ?";
+            $params = [$academic_id, $grade_id, $semester_id, $subject_id, $book_title];
+            $types = "iiiss";
+
+            if (!empty($new_file_name)) {
+                $updateFields .= ", book_file_name = ?";
+                $params[] = $book_file_name;
+                $types .= "s";
+            }
+            if (!empty($new_cover_name)) {
+                $updateFields .= ", file_cover = ?";
+                $params[] = $file_cover;
+                $types .= "s";
+            }
+            $updateFields .= " WHERE id = ?";
+            $params[] = $id;
+            $types .= "i";
+
+            $sql = "UPDATE ebooks SET $updateFields";
             $stmt = $mysqli->prepare($sql);
 
             if ($stmt) {
-                $stmt->bind_param("iiissssi", $academic_id, $grade_id, $semester_id, $subject_id, $book_title, $book_file_name, $file_cover, $id);
+                $stmt->bind_param($types, ...$params);
                 if ($stmt->execute()) {
                     $success_message = "Ebook updated successfully";
                     header("Location: ebooks.php?success_message=" . urlencode($success_message));
@@ -236,14 +254,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             </div>
             <div class="form-group">
                 <label for="book_file_name">Book File (PDF)</label>
-                <input type="file" class="form-control" id="book_file_name" name="book_file_name" accept=".pdf">
+                <input type="file" class="form-control" id="book_file_name" name="book_file_name" accept=".pdf" value="<?php echo htmlspecialchars($book_file_name); ?>">
                 <?php if (!empty($book_file_name)): ?>
                     <small>Current file: <a href="../uploads/ebooks/<?php echo htmlspecialchars($book_file_name); ?>" target="_blank"><?php echo htmlspecialchars($book_file_name); ?></a></small>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="file_cover">Book Cover (Optional)</label>
-                <input type="file" class="form-control" id="file_cover" name="file_cover" accept=".jpg,.jpeg,.png">
+                <input type="file" class="form-control" id="file_cover" name="file_cover" accept=".jpg,.jpeg,.png" value="<?php echo htmlspecialchars($file_cover); ?>">
                 <?php if (!empty($file_cover)): ?>
                     <small>Current cover: <a href="../uploads/ebooks/<?php echo htmlspecialchars($file_cover); ?>" target="_blank"><?php echo htmlspecialchars($file_cover); ?></a></small>
                 <?php endif; ?>
