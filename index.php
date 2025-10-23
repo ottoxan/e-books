@@ -16,7 +16,7 @@ $resultStages = $mysqli->query($sqlStages);
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title"><?= __('Academic Stage') ?></h2>
-                <p> ipsum dolor sit amet consectetur adipisicing elit. Autem, reiciendis.</p>
+                <p>dolor sit amet consectetur adipisicing elit. Autem, reiciendis.</p>
             </div>
             <div class="projects-grid">
                 <?php while ($row = $resultStages->fetch_assoc()): ?>
