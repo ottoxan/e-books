@@ -49,7 +49,7 @@ while ($row = $resultEbook->fetch_assoc()) {
     <div class="container">
         <div class="section-header">
             <h2 class="">
-                <?= __(' All Books') ?>
+                 <?= __('All Books') ?>
             </h2>
             <p>A book is a medium of information containing writing or images, used to convey knowledge, stories, or ideas. Books can be in print or digital form, and play an important role in education, entertainment, and self-development.</p>
         </div>
