@@ -51,7 +51,7 @@ while ($row = $resultEbook->fetch_assoc()) {
             <h2 class="">
                 <?= __('All Books') ?>
             </h2>
-            <p>A book is a information containing writing or images, used to convey knowledge, stories, or ideas. Books can be in print or digital form, and play an important role in education, entertainment, and self-development.</p>
+            <p>A book is an information containing writing or images, used to convey knowledge, stories, or ideas. Books can be in print or digital form, and play an important role in education, entertainment, and self-development.</p>
         </div>
 
         <div class="d-flex flex-wrap justify-content-center">
