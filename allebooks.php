@@ -43,6 +43,11 @@ $ebooks = [];
 while ($row = $resultEbook->fetch_assoc()) {
     $ebooks[] = $row;
 }
+
+$queryParams = $_GET;
+unset($queryParams['page']); // remove 'page' to avoid duplication
+$baseQuery = http_build_query($queryParams);
+$baseUrl = basename($_SERVER['PHP_SELF']) . ($baseQuery ? '?' . $baseQuery . '&' : '?');
 ?>
 
 <section id="ebooks-section" class="d-flex py-0 flex-column pt-5">
@@ -80,28 +85,30 @@ while ($row = $resultEbook->fetch_assoc()) {
             <nav aria-label="Ebooks pagination" class="mt-4">
                 <ul class="pagination justify-content-center">
                     <li class="page-item<?php if ($page <= 1) echo ' disabled'; ?>">
-                        <a class="page-link" href="?page=1#ebooks-section">&laquo;</a>
+                        <a class="page-link" href="<?php echo $baseUrl; ?>page=1#ebooks-section">&laquo;</a>
                     </li>
                     <li class="page-item<?php if ($page <= 1) echo ' disabled'; ?>">
-                        <a class="page-link" href="?page=<?php echo max(1, $page - 1); ?>#ebooks-section">&lt;</a>
+                        <a class="page-link" href="<?php echo $baseUrl; ?>page=<?php echo max(1, $page - 1); ?>#ebooks-section">&lt;</a>
                     </li>
+
                     <?php
-                    // Show up to 5 page links
                     $start = max(1, $page - 2);
                     $end = min($totalPages, $page + 2);
                     for ($i = $start; $i <= $end; $i++): ?>
                         <li class="page-item<?php if ($i == $page) echo ' active'; ?>">
-                            <a class="page-link" href="?page=<?php echo $i; ?>#ebooks-section"><?php echo $i; ?></a>
+                            <a class="page-link" href="<?php echo $baseUrl; ?>page=<?php echo $i; ?>#ebooks-section"><?php echo $i; ?></a>
                         </li>
                     <?php endfor; ?>
+
                     <li class="page-item<?php if ($page >= $totalPages) echo ' disabled'; ?>">
-                        <a class="page-link" href="?page=<?php echo min($totalPages, $page + 1); ?>#ebooks-section">&gt;</a>
+                        <a class="page-link" href="<?php echo $baseUrl; ?>page=<?php echo min($totalPages, $page + 1); ?>#ebooks-section">&gt;</a>
                     </li>
                     <li class="page-item<?php if ($page >= $totalPages) echo ' disabled'; ?>">
-                        <a class="page-link" href="?page=<?php echo $totalPages; ?>#ebooks-section">&raquo;</a>
+                        <a class="page-link" href="<?php echo $baseUrl; ?>page=<?php echo $totalPages; ?>#ebooks-section">&raquo;</a>
                     </li>
                 </ul>
             </nav>
         <?php endif; ?>
+
     </div>
 </section>
