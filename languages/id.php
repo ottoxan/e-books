@@ -101,5 +101,13 @@ $lang = [
     'Visioner with a passion for technology and innovation.' => 'Visioner dengan hasrat terhadap teknologi dan inovasi.',
     'Expert in Website development' => 'Expert dalam pengembangan aplikasi dan arsitektur sistem',
     'Specialist in UI/UX with passion and user friendly designs' => 'Spesialis UI/UX dengan passion untuk desain yang user-friendly',
-    'Project coordinator with efficiency and effectiveness' => 'Koordinator proyek dengan efisiensi dan efektivitas'
+    'Project coordinator with efficiency and effectiveness' => 'Koordinator proyek dengan efisiensi dan efektivitas',
+    'Elementary  School' => 'Sekolah Dasar',
+    'Middle School' => 'Sekolah Menengah Pertama',
+    'High School' => 'Sekolah Menengah Atas',
+    'โรงเรียนประถมศึกษา' => 'Sekolah Dasar',
+    'โรงเรียนมัธยมต้น' => 'Sekolah Menengah Pertama',
+    'โรงเรียนมัธยมปลาย' => 'Sekolah Menengah Pertama',
+    'Class ' => 'Kelas',
+    'Subject' => 'Mata Pelajaran',
 ];
