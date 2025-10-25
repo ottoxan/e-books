@@ -1,4 +1,6 @@
 <?php
+
+
 $lang = [
     'Sekolah Dasar' => 'Elementary  School',
     'Sekolah Menengah Pertama' => 'Middle School',
@@ -32,3 +34,12 @@ $lang = [
     'ภาคเรียน 4' => 'Semester 4',
 
 ];
+
+if (!function_exists('__')) {
+    function __($text)
+    {
+        global $lang;
+        $normalized = trim(preg_replace('/\s+/', ' ', $text));
+        return $lang[$normalized] ?? $text;
+    }
+}

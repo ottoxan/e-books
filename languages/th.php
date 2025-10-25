@@ -1,4 +1,6 @@
 <?php
+
+
 $lang = [
     'Home' => 'หน้าหลัก',
     'About' => 'เกี่ยวกับ',
@@ -131,3 +133,12 @@ $lang = [
     'Semester 4' => 'ภาคเรียน 4',
     'Subject' => 'วิชา',
 ];
+
+if (!function_exists('__')) {
+    function __($text)
+    {
+        global $lang;
+        $normalized = trim(preg_replace('/\s+/', ' ', $text));
+        return $lang[$normalized] ?? $text;
+    }
+}
