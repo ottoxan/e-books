@@ -22,8 +22,7 @@ $resultStages = $mysqli->query($sqlStages);
                 <?php while ($row = $resultStages->fetch_assoc()): ?>
                     <div class="project-card" onclick="location.href='grade.php?id=<?php echo $row['id']; ?>'">
                         <img src="assets/<?php echo htmlspecialchars($row["academic_stage"]); ?>.png" class="card-image" alt="">
-                        <h3><?php echo htmlspecialchars($row["academic_stage"]); ?></h3>
-
+                        <h3><?php echo __(htmlspecialchars($row["academic_stage"])); ?></h3>
                     </div>
                 <?php endwhile; ?>
             </div>

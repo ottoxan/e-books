@@ -62,11 +62,11 @@ while ($row = $resultEbook->fetch_assoc()) {
                         <div class="card-body">
                             <div class="mb-2">
                                 <span class="badge bg-danger">PDF</span>
-                                <span class="badge bg-primary"><?php echo htmlspecialchars($ebook['grade']); ?></span>
-                                <span class="badge bg-primary"><?php echo htmlspecialchars($ebook['semester_number']); ?></span>
+                                <span class="badge bg-primary"><?php echo __(htmlspecialchars($ebook['grade'])); ?></span>
+                                <span class="badge bg-primary"><?php echo __(htmlspecialchars($ebook['semester_number'])); ?></span>
                             </div>
                             <h5 class="card-title"><?php echo htmlspecialchars($ebook["book_title"]); ?></h5>
-                            <p class="card-text"><?php echo htmlspecialchars($ebook['academic_stage']); ?></p>
+                            <p class="card-text"><?php echo __(htmlspecialchars($ebook['academic_stage'])); ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

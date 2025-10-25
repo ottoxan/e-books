@@ -35,7 +35,7 @@ if ($id) {
                     <?php $imageIndex = isset($imageIndex) ? $imageIndex + 1 : 1; // Set the desired image index dynamically 
                     ?>
                     <img src="assets/<?php echo $imageIndex; ?>.jpg" class="card-image" alt="Picture">
-                    <h3><?php echo htmlspecialchars($row["semester_number"]); ?></h3>
+                    <h3><?php echo  __(htmlspecialchars($row["semester_number"])); ?></h3>
                 </div>
             <?php endwhile; ?>
         </div>

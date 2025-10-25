@@ -71,19 +71,19 @@ while ($row = $resultEbook->fetch_assoc()) {
                             <div class="container text-start">
                                 <div class="book-details row">
                                     <div class="col details ps-0">
-                                        <p><?= __('Subject') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['subject']); ?></span></p>
+                                        <p><?= __('Subject') ?>:<br><span class="text-muted"><?php echo __(htmlspecialchars($ebook['subject'])); ?></span></p>
 
                                     </div>
                                     <div class="col details">
-                                        <p><?= __('Academic Stage') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['academic_stage']); ?></span></p>
+                                        <p><?= __('Academic Stage') ?>:<br><span class="text-muted"><?php echo __(htmlspecialchars($ebook['academic_stage'])); ?></span></p>
 
                                     </div>
                                     <div class="col details">
-                                        <p><?= __('Grade') ?>: <br><span class="text-muted"><?php echo htmlspecialchars($ebook['grade']); ?></span></p>
+                                        <p><?= __('Grade') ?>: <br><span class="text-muted"><?php echo __(htmlspecialchars($ebook['grade'])); ?></span></p>
 
                                     </div>
                                     <div class="col details">
-                                        <p><?= __('Semester') ?>:<br><span class="text-muted"><?php echo htmlspecialchars($ebook['semester_number']); ?></span></p>
+                                        <p><?= __('Semester') ?>:<br><span class="text-muted"><?php echo __(htmlspecialchars($ebook['semester_number'])); ?></span></p>
 
                                     </div>
                                 </div>
