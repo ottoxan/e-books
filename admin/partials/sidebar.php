@@ -50,8 +50,8 @@ $page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 
         </li>
     </ul>
     <ul class="side-menu p-0">
-        <li>
-            <a href="#">
+        <li class="">
+            <a href="settings.php">
                 <i class='bx bxs-cog'></i>
                 <span class="text">Settings</span>
             </a>

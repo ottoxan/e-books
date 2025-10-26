@@ -23,7 +23,7 @@ require "config/allebooks-conf.php";
                     <div class="d-flex flex-wrap justify-content-center">
                         <?php if (!empty($ebooks)): ?>
                             <?php foreach ($ebooks as $ebook): ?>
-                                <div class="card book-card" onclick="location.href='ebook.php?id=<?php echo $ebook['id']; ?>'">
+                                <div class="card book-card" onclick="window.open('/ebook.php?id=<?php echo $ebook["id"]; ?>', '_blank').focus();">
                                     <img src="../uploads/ebooks/<?php echo htmlspecialchars($ebook["file_cover"] ?? 'default-cover.jpg'); ?>" alt="<?php echo htmlspecialchars($ebook["book_title"]); ?>" class="book-image">
                                     <div class="card-body">
                                         <div class="mb-2">

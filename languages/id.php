@@ -1,4 +1,6 @@
 <?php
+
+
 $lang = [
 
     'Home' => 'Beranda',
@@ -101,5 +103,44 @@ $lang = [
     'Visioner with a passion for technology and innovation.' => 'Visioner dengan hasrat terhadap teknologi dan inovasi.',
     'Expert in Website development' => 'Expert dalam pengembangan aplikasi dan arsitektur sistem',
     'Specialist in UI/UX with passion and user friendly designs' => 'Spesialis UI/UX dengan passion untuk desain yang user-friendly',
-    'Project coordinator with efficiency and effectiveness' => 'Koordinator proyek dengan efisiensi dan efektivitas'
+    'Project coordinator with efficiency and effectiveness' => 'Koordinator proyek dengan efisiensi dan efektivitas',
+    'Elementary  School' => 'Sekolah Dasar',
+    'Middle School' => 'Sekolah Menengah Pertama',
+    'High School' => 'Sekolah Menengah Atas',
+    'โรงเรียนประถมศึกษา' => 'Sekolah Dasar',
+    'โรงเรียนมัธยมต้น' => 'Sekolah Menengah Pertama',
+    'โรงเรียนมัธยมปลาย' => 'Sekolah Menengah Pertama',
+    'Class ' => 'Kelas',
+    'Subject' => 'Mata Pelajaran',
+    'ระดับ 1' => 'Kelas 1',
+    'ระดับ 2' => 'Kelas 2',
+    'ระดับ 3' => 'Kelas 3',
+    'ระดับ 4' => 'Kelas 4',
+    'ระดับ 5' => 'Kelas 5',
+    'ระดับ 6' => 'Kelas 6',
+    'ระดับ 7' => 'Kelas 7',
+    'ระดับ 8' => 'Kelas 8',
+    'ระดับ 9' => 'Kelas 9',
+    'Grade 1' => 'Kelas 1',
+    'Grade 2' => 'Kelas 2',
+    'Grade 3' => 'Kelas 3',
+    'Grade 4' => 'Kelas 4',
+    'Grade 5' => 'Kelas 5',
+    'Grade 6' => 'Kelas 6',
+    'Grade 7' => 'Kelas 7',
+    'Grade 8' => 'Kelas 8',
+    'Grade 9' => 'Kelas 9',
+    'ภาคเรียน 1' => 'Semester 1',
+    'ภาคเรียน 2' => 'Semester 2',
+    'ภาคเรียน 3' => 'Semester 3',
+    'ภาคเรียน 4' => 'Semester 4',
 ];
+
+if (!function_exists('__')) {
+    function __($text)
+    {
+        global $lang;
+        $normalized = trim(preg_replace('/\s+/', ' ', $text));
+        return $lang[$normalized] ?? $text;
+    }
+}

@@ -1,4 +1,6 @@
 <?php
+
+
 $lang = [
     'Home' => 'หน้าหลัก',
     'About' => 'เกี่ยวกับ',
@@ -102,5 +104,44 @@ $lang = [
     'Visioner with a passion for technology and innovation.' => 'นักคิดที่มีใจรักในเทคโนโลยีและนวัตกรรม',
     'Expert in Website development' => 'ผู้เชี่ยวชาญด้านการพัฒนาเว็บไซต์',
     'Specialist in UI/UX with passion and user friendly designs' => 'ผู้เชี่ยวชาญด้าน UI/UX ที่มีใจรักและออกแบบเพื่อผู้ใช้',
-    'Project coordinator with efficiency and effectiveness' => 'ผู้ประสานงานโครงการที่มีประสิทธิภาพและประสิทธิผล'
+    'Project coordinator with efficiency and effectiveness' => 'ผู้ประสานงานโครงการที่มีประสิทธิภาพและประสิทธิผล',
+    'Elementary School' => 'โรงเรียนประถมศึกษา',
+    'Middle School' => 'โรงเรียนมัธยมต้น',
+    'High School' => 'โรงเรียนมัธยมปลาย',
+    'Sekolah Dasar' => 'โรงเรียนประถมศึกษา',
+    'Sekolah Menengah Pertama' => 'โรงเรียนมัธยมต้น',
+    'Sekolah Menengah Atas' => 'โรงเรียนมัธยมปลาย',
+    'Grade 1' => 'ระดับ 1',
+    'Grade 2' => 'ระดับ 2',
+    'Grade 3' => 'ระดับ 3',
+    'Grade 4' => 'ระดับ 4',
+    'Grade 5' => 'ระดับ 5',
+    'Grade 6' => 'ระดับ 6',
+    'Grade 7' => 'ระดับ 7',
+    'Grade 8' => 'ระดับ 8',
+    'Grade 9' => 'ระดับ 9',
+    'Kelas 1' => 'ระดับ 1',
+    'Kelas 2' => 'ระดับ 2',
+    'Kelas 3' => 'ระดับ 3',
+    'Kelas 4' => 'ระดับ 4',
+    'Kelas 5' => 'ระดับ 5',
+    'Kelas 6' => 'ระดับ 6',
+    'Kelas 7' => 'ระดับ 7',
+    'Kelas 8' => 'ระดับ 8',
+    'Kelas 9' => 'ระดับ 9',
+    'Class' => 'ระดับ',
+    'Semester 1' => 'ภาคเรียน 1',
+    'Semester 2' => 'ภาคเรียน 2',
+    'Semester 3' => 'ภาคเรียน 3',
+    'Semester 4' => 'ภาคเรียน 4',
+    'Subject' => 'วิชา',
 ];
+
+if (!function_exists('__')) {
+    function __($text)
+    {
+        global $lang;
+        $normalized = trim(preg_replace('/\s+/', ' ', $text));
+        return $lang[$normalized] ?? $text;
+    }
+}

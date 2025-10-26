@@ -1,6 +1,45 @@
-<?php 
+<?php
+
+
 $lang = [
-    
+    'Sekolah Dasar' => 'Elementary  School',
+    'Sekolah Menengah Pertama' => 'Middle School',
+    'Sekolah Menengah Atas' => 'High School',
+    'โรงเรียนประถมศึกษา' => 'Elementary  School',
+    'โรงเรียนมัธยมต้น' => 'Middle School',
+    'โรงเรียนมัธยมปลาย' => 'High School',
+    'Kelas' => 'Class',
+    'ระดับ' => 'Class',
+    'Kelas 1' => 'Class 1',
+    'Kelas 2' => 'Class 2',
+    'Kelas 3' => 'Class 3',
+    'Kelas 4' => 'Class 4',
+    'Kelas 5' => 'Class 5',
+    'Kelas 6' => 'Class 6',
+    'Kelas 7' => 'Class 7',
+    'Kelas 8' => 'Class 8',
+    'Kelas 9' => 'Class 9',
+    'ระดับ 1' => 'Class 1',
+    'ระดับ 2' => 'Class 2',
+    'ระดับ 3' => 'Class 3',
+    'ระดับ 4' => 'Class 4',
+    'ระดับ 5' => 'Class 5',
+    'ระดับ 6' => 'Class 6',
+    'ระดับ 7' => 'Class 7',
+    'ระดับ 8' => 'Class 8',
+    'ระดับ 9' => 'Class 9',
+    'ภาคเรียน 1' => 'Semester 1',
+    'ภาคเรียน 2' => 'Semester 2',
+    'ภาคเรียน 3' => 'Semester 3',
+    'ภาคเรียน 4' => 'Semester 4',
+
 ];
 
-?>
+if (!function_exists('__')) {
+    function __($text)
+    {
+        global $lang;
+        $normalized = trim(preg_replace('/\s+/', ' ', $text));
+        return $lang[$normalized] ?? $text;
+    }
+}
